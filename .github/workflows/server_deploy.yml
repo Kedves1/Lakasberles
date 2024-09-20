@@ -34,9 +34,9 @@ jobs:
           # ssh remote host
           host: ${{secrets.SERVER_IP}}
           # ssh remote user
-          user: ${{SERVER_USERNAME}}
+          user: ${{secrets.SERVER_USERNAME}}
           # ssh remote password
-          pass: ${{SERVER_PASSWORD}}
+          pass: ${{secrets.SERVER_PASSWORD}}
           script:
             cd htdocs/berles.gemes.eu/
             git pull
