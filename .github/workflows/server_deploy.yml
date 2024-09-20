@@ -37,7 +37,7 @@ jobs:
           user: ${{secrets.SERVER_USERNAME}}
           # ssh remote password
           pass: ${{secrets.SERVER_PASSWORD}}
-          script:
+          script: |
             cd htdocs/berles.gemes.eu/
             git pull
             npm install
