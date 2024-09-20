@@ -10,7 +10,7 @@ import { useSearchParams } from "next/navigation";
 function Navbar() {
   const searchParams = useSearchParams();
   const incountry = (searchParams.get("incountry") || "true") === "true";
-  let [IsCategoryOpen, ToggleCategoryOpen] = useState(false);
+  const [IsCategoryOpen, ToggleCategoryOpen] = useState(false);
 
   const ToggleCategory = () => {
     ToggleCategoryOpen(!IsCategoryOpen);
@@ -46,7 +46,6 @@ function Navbar() {
   return (
     <header className="w-full max-lg:py-10 lg:h-20 bg-secondary flex justify-between lg:px-10 items-center flex-wrap relative">
       <div className="max-lg:m-auto max-lg:my-10">
-        <img />
         <span className="text-3xl">Levegő BéEnBé</span>
       </div>
       <div className="flex w-[98%] max-lg:m-auto max-w-[500px] h-[50px] relative">
