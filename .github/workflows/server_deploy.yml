@@ -28,15 +28,15 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
-    - name: ssh-scp-ssh-pipelines
-      uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
+    - name: SSH Remote Commands
+      uses: appleboy/ssh-action@v1.0.3
       with:
           # ssh remote host
           host: ${{secrets.SERVER_IP}}
           # ssh remote user
-          user: ${{secrets.SERVER_USERNAME}}
+          username: ${{secrets.SERVER_USERNAME}}
           # ssh remote password
-          pass: ${{secrets.SERVER_PASSWORD}}
+          password: ${{secrets.SERVER_PASSWORD}}
           script: |
             cd htdocs/berles.gemes.eu/
             git pull
