@@ -6,6 +6,7 @@ import languange from "@/img/languange.svg";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import housepic from "@/img/house.svg";
 
 function Navbar() {
   const searchParams = useSearchParams();
@@ -18,28 +19,28 @@ function Navbar() {
 
   const categories = [
     {
-      name: "Ház",
-      picture: "",
+      name: "Ház1",
+      picture: housepic,
     },
     {
-      name: "Ház",
-      picture: "",
+      name: "Ház2",
+      picture: housepic,
     },
     {
-      name: "Ház",
-      picture: "",
+      name: "Ház3",
+      picture: housepic,
     },
     {
-      name: "Ház",
-      picture: "",
+      name: "Ház4",
+      picture: housepic,
     },
     {
-      name: "Ház",
-      picture: "",
+      name: "Ház5",
+      picture: housepic,
     },
     {
-      name: "Ház",
-      picture: "",
+      name: "Ház6",
+      picture: housepic,
     },
   ];
 
@@ -48,26 +49,41 @@ function Navbar() {
       <div className="max-lg:m-auto max-lg:my-10">
         <span className="text-3xl">Levegő BéEnBé</span>
       </div>
-      <div className="flex w-[98%] max-lg:m-auto max-w-[500px] h-[50px] relative">
+      <div className="flex w-[98%] max-lg:m-auto max-w-[500px] h-[50px] lg:relative rounded-xl">
         <input
           type="text"
           id="search"
           placeholder="Keresés"
-          className="px-5 py-2 w-[400px] rounded-ss-xl rounded-es-xl focus:outline-none text-2xl"
+          className="px-5 py-2 w-[400px] rounded-ss-xl rounded-es-xl focus:outline-none text-2xl focus:ring-4"
         />
         <button
-          className="rounded-se-xl rounded-ee-xl w-[100px] h-full bg-third flex gap-2 flex-col items-center justify-center"
+          className={cn(
+            "rounded-se-xl rounded-ee-xl w-[100px] h-full bg-third flex gap-2 flex-col items-center justify-center focus:ring-4 focus:outline-0",
+            { "gap-0": IsCategoryOpen }
+          )}
           onClick={ToggleCategory}
         >
-          <div className="h-[1px] w-1/3 bg-black"></div>
-          <div className="h-[1px] w-1/3 bg-black"></div>
-          <div className="h-[1px] w-1/3 bg-black"></div>
+          <div
+            className={cn("h-[1px] w-1/3 bg-black transition-all ease-linear", {
+              "-rotate-45": IsCategoryOpen,
+            })}
+          ></div>
+          <div
+            className={cn("h-[1px] w-1/3 bg-black transition-all ease-linear", {
+              hidden: IsCategoryOpen,
+            })}
+          ></div>
+          <div
+            className={cn("h-[1px] w-1/3 bg-black transition-all ease-linear", {
+              "rotate-45": IsCategoryOpen,
+            })}
+          ></div>
         </button>
         <div
           className={cn(
-            "h-[500px] p-5 bg-third rounded-xl shadow-sm shadow-black absolute bottom-[-200px] left-[50px] duration-500 transition-all ease-in-out scale-0 w-[800px]",
+            "min-h-[420px] p-5 bg-third rounded-xl shadow-sm shadow-black absolute bottom-[-200px] left-[200px] duration-500 transition-all ease-in-out scale-0 w-full max-w-[800px] z-50 max-lg:left-0",
             {
-              " scale-100 bottom-[-510px] left-[100px]": IsCategoryOpen,
+              " scale-100 bottom-[-450px] left-[100px]": IsCategoryOpen,
             }
           )}
         >
@@ -81,7 +97,7 @@ function Navbar() {
                   className="size-32 bg-gray-600 relative"
                   key={category.name}
                 >
-                  <Image src={category.picture} alt={category.name} />
+                  <Image src={category.picture} alt={category.name} fill />
                   <div className="w-full h-10 bg-black/70 text-white flex justify-center items-center text-2xl absolute bottom-0">
                     {category.name}
                   </div>
@@ -92,10 +108,10 @@ function Navbar() {
         </div>
       </div>
       <div className="flex gap-5 max-lg:m-auto max-lg:mt-5 max-lg:mb-20">
-        <Link href={"?incountry=true"}>
+        <Link href={"?incountry=true"} tabIndex={-1}>
           <button
             className={cn(
-              "h-[50px] bg-third rounded-ss-xl rounded-es-xl px-5",
+              "h-[50px] bg-third rounded-ss-xl rounded-es-xl px-5 focus:ring-4 focus:outline-none",
               {
                 "bg-[#f5ebe065] pointer-events-none": incountry,
               }
@@ -104,10 +120,10 @@ function Navbar() {
             Országon Belül
           </button>
         </Link>
-        <Link href={"?incountry=false"}>
+        <Link href={"?incountry=false"} tabIndex={-1}>
           <button
             className={cn(
-              "h-[50px] bg-third rounded-se-xl rounded-ee-xl px-5",
+              "h-[50px] bg-third rounded-se-xl rounded-ee-xl px-5 focus:ring-4 focus:outline-none",
               {
                 "bg-[#f5ebe065] pointer-events-none": !incountry,
               }
@@ -121,7 +137,7 @@ function Navbar() {
         <span>
           <Image src={languange} alt="languange" width={30} height={30} />
         </span>
-        <button className="text-xl h-[40px] bg-third px-5 rounded-xl">
+        <button className="text-xl h-[40px] bg-third px-5 rounded-xl focus:ring-4 focus:outline-none">
           Bejelentkezés
         </button>
       </div>
