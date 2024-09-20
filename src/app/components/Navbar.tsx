@@ -45,7 +45,7 @@ function Navbar() {
   ];
 
   return (
-    <header className="w-full max-lg:py-10 lg:h-20 bg-secondary flex justify-between lg:px-10 items-center flex-wrap relative">
+    <header className="w-full py-3 bg-secondary flex justify-between lg:px-10 items-center flex-wrap relative">
       <div className="max-lg:m-auto max-lg:my-10">
         <span className="text-3xl">Levegő BéEnBé</span>
       </div>
@@ -62,6 +62,7 @@ function Navbar() {
             { "gap-0": IsCategoryOpen }
           )}
           onClick={ToggleCategory}
+          aria-label="Category menu"
         >
           <div
             className={cn("h-[1px] w-1/3 bg-black transition-all ease-linear", {
@@ -107,39 +108,41 @@ function Navbar() {
           </div>
         </div>
       </div>
-      <div className="flex gap-5 max-lg:m-auto max-lg:mt-5 max-lg:mb-20">
-        <Link href={"?incountry=true"} tabIndex={-1}>
-          <button
-            className={cn(
-              "h-[50px] bg-third rounded-ss-xl rounded-es-xl px-5 focus:ring-4 focus:outline-none",
-              {
-                "bg-[#f5ebe065] pointer-events-none": incountry,
-              }
-            )}
-          >
-            Országon Belül
+      <div className="flex max-lg:w-full justify-between gap-20 max-lg:m-auto">
+        <div className="flex gap-5 max-lg:m-auto max-lg:mt-5 max-lg:mb-20">
+          <Link href={"?incountry=true"} tabIndex={-1}>
+            <button
+              className={cn(
+                "h-[50px] bg-third rounded-ss-xl rounded-es-xl px-5 focus:ring-4 focus:outline-none",
+                {
+                  "bg-[#f5ebe065] pointer-events-none": incountry,
+                }
+              )}
+            >
+              Országon Belül
+            </button>
+          </Link>
+          <Link href={"?incountry=false"} tabIndex={-1}>
+            <button
+              className={cn(
+                "h-[50px] bg-third rounded-se-xl rounded-ee-xl px-5 focus:ring-4 focus:outline-none",
+                {
+                  "bg-[#f5ebe065] pointer-events-none": !incountry,
+                }
+              )}
+            >
+              Országon Kívül
+            </button>
+          </Link>
+        </div>
+        <div className="flex gap-5 max-lg:justify-between max-lg:w-full max-lg:absolute max-lg:bottom-3 max-lg:px-2 items-center">
+          <button className="rounded-xl">
+            <Image src={languange} alt="languange" width={30} height={30} />
           </button>
-        </Link>
-        <Link href={"?incountry=false"} tabIndex={-1}>
-          <button
-            className={cn(
-              "h-[50px] bg-third rounded-se-xl rounded-ee-xl px-5 focus:ring-4 focus:outline-none",
-              {
-                "bg-[#f5ebe065] pointer-events-none": !incountry,
-              }
-            )}
-          >
-            Országon Kívül
+          <button className="text-xl h-[40px] bg-third px-5 rounded-xl focus:ring-4 focus:outline-none">
+            Bejelentkezés
           </button>
-        </Link>
-      </div>
-      <div className="flex gap-5 max-lg:justify-between max-lg:w-full max-lg:absolute max-lg:bottom-3 max-lg:px-2 items-center">
-        <button className="rounded-xl">
-          <Image src={languange} alt="languange" width={30} height={30} />
-        </button>
-        <button className="text-xl h-[40px] bg-third px-5 rounded-xl focus:ring-4 focus:outline-none">
-          Bejelentkezés
-        </button>
+        </div>
       </div>
     </header>
   );
