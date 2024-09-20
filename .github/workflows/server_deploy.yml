@@ -38,9 +38,8 @@ jobs:
           script: |
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
-            npm --help
             cd htdocs/berles.gemes.eu/
             git pull
             npm install
             npm run build
-            pm2 start lakasberles
+            pm2 restart lakasberles
