@@ -134,9 +134,9 @@ function Navbar() {
         </Link>
       </div>
       <div className="flex gap-5 max-lg:justify-between max-lg:w-full max-lg:absolute max-lg:bottom-3 max-lg:px-2 items-center">
-        <span>
+        <button className="rounded-xl">
           <Image src={languange} alt="languange" width={30} height={30} />
-        </span>
+        </button>
         <button className="text-xl h-[40px] bg-third px-5 rounded-xl focus:ring-4 focus:outline-none">
           Bejelentkezés
         </button>
