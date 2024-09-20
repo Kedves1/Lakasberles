@@ -36,6 +36,9 @@ jobs:
           # ssh remote password
           password: ${{secrets.SERVER_PASSWORD}}
           script: |
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            npm --help
             cd htdocs/berles.gemes.eu/
             git pull
             npm install
