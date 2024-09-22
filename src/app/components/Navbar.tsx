@@ -43,14 +43,14 @@ function Navbar({
   return (
     <header className="w-full py-3 bg-secondary flex justify-between lg:px-10 items-center flex-wrap relative">
       <div className="max-lg:m-auto max-lg:my-10">
-        <span className="text-3xl">Levegő BéEnBé</span>
+        <span className="text-3xl font-extralight">Levegő BéEnBé</span>
       </div>
       <div className="flex w-[98%] max-lg:m-auto max-w-[500px] h-[50px] lg:relative rounded-xl">
         <input
           type="text"
           id="search"
           placeholder="Keresés"
-          className="px-5 py-2 w-[400px] rounded-ss-xl rounded-es-xl focus:outline-none text-2xl focus:ring-4"
+          className="px-5 py-2 w-[400px] rounded-ss-xl rounded-es-xl focus:outline-none text-xl focus:ring-4 placeholder:font-thin"
         />
         <Categories categories={categories} />
       </div>

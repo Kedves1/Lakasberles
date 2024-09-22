@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  @apply font-normal;
+}
 :root {
   --third: #f5ebe0;
   --secondary: #d5bdaf;
