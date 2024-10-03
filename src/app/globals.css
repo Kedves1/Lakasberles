@@ -8,7 +8,7 @@
 :root {
   --third: #f5ebe0;
   --secondary: #d5bdaf;
-  --primary: #faf6f3;
+  --primary: #f0f0f0;
 }
 @layer utilities {
   header button {

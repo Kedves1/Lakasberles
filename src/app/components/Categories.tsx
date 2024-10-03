@@ -1,8 +1,9 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import React, { useState } from "react";
+import Filtericon from "@/img/Filter.svg"
+import Image from "next/image";
 
 type category = {
   name: string;
@@ -11,7 +12,7 @@ type category = {
 
 const Categories = ({ categories }: { categories: category[] }) => {
   const [IsCategoryOpen, ToggleCategoryOpen] = useState(false);
-
+  categories.map(e=>{return e})
   const ToggleCategory = () => {
     ToggleCategoryOpen(!IsCategoryOpen);
   };
@@ -19,27 +20,13 @@ const Categories = ({ categories }: { categories: category[] }) => {
     <>
       <button
         className={cn(
-          "rounded-se-xl rounded-ee-xl w-[100px] h-full bg-third flex gap-2 flex-col items-center justify-center focus:ring-4 focus:outline-0",
+          "rounded-se-xl rounded-ee-xl w-1/3 max-w-[80px] h-full bg-third flex gap-2 flex-col items-center justify-center focus:ring-4 focus:outline-0 flex-shrink-0 flex-grow-0",
           { "gap-0": IsCategoryOpen }
         )}
         onClick={ToggleCategory}
         aria-label="Category menu"
       >
-        <div
-          className={cn("h-[1px] w-1/3 bg-black transition-all ease-linear", {
-            "-rotate-45": IsCategoryOpen,
-          })}
-        ></div>
-        <div
-          className={cn("h-[1px] w-1/3 bg-black transition-all ease-linear", {
-            hidden: IsCategoryOpen,
-          })}
-        ></div>
-        <div
-          className={cn("h-[1px] w-1/3 bg-black transition-all ease-linear", {
-            "rotate-45": IsCategoryOpen,
-          })}
-        ></div>
+        <Image src={Filtericon} alt="filter"/>
       </button>
       <div
         className={cn(
@@ -49,7 +36,7 @@ const Categories = ({ categories }: { categories: category[] }) => {
           }
         )}
       >
-        <div className="text-4xl w-full border-b-4 border-b-black pb-2 mb-10">
+        {/* <div className="text-4xl w-full border-b-4 border-b-black pb-2 mb-10">
           Kategóriák
         </div>
         <div className="flex flex-wrap w-full gap-5">
@@ -63,7 +50,7 @@ const Categories = ({ categories }: { categories: category[] }) => {
               </div>
             );
           })}
-        </div>
+        </div> */}
       </div>
     </>
   );

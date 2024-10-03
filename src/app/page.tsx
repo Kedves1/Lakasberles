@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 import housepic from "@/img/house.svg";
+import HelpDesk from "./components/HelpDesk";
 
 export default function Home({
   searchParams,
@@ -49,6 +50,7 @@ export default function Home({
           })}
         </div>
       </main>
+      <HelpDesk/>
     </>
   );
 }

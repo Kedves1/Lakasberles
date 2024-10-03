@@ -41,21 +41,21 @@ function Navbar({
   ];
 
   return (
-    <header className="w-full py-3 bg-secondary flex justify-between lg:px-10 items-center flex-wrap relative">
-      <div className="max-lg:m-auto max-lg:my-10">
-        <span className="text-3xl font-extralight">Levegő BéEnBé</span>
+    <header className="w-[100dvw] py-3 bg-primary border-b-[1px] border-b-black/20 flex justify-between px-1 lg:px-10 items-center relative">
+      <div className="">
+        <span className="text-3xl font-extralight max-lg:hidden">Levegő BéEnBé</span>
       </div>
-      <div className="flex w-[98%] max-lg:m-auto max-w-[500px] h-[50px] lg:relative rounded-xl">
+      <div className="flex min-w-[200px] max-w-[500px] h-[50px] lg:relative rounded-xl">
         <input
           type="text"
           id="search"
           placeholder="Keresés"
-          className="px-5 py-2 w-[400px] rounded-ss-xl rounded-es-xl focus:outline-none text-xl focus:ring-4 placeholder:font-thin"
+          className="px-5 py-2 w-2/3 rounded-ss-xl rounded-es-xl focus:outline-none text-xl focus:ring-4 placeholder:font-thin flex-shrink-0 flex-grow-0"
         />
         <Categories categories={categories} />
       </div>
-      <div className="flex max-lg:w-full justify-between gap-20 max-lg:m-auto">
-        <div className="flex gap-5 max-lg:m-auto max-lg:mt-5 max-lg:mb-20">
+      <div className="flex justify-between gap-20">
+        <div className="flex gap-5 max-lg:hidden">
           <Link href={"?incountry=true"} tabIndex={-1}>
             <button
               className={cn(
@@ -81,11 +81,11 @@ function Navbar({
             </button>
           </Link>
         </div>
-        <div className="flex gap-5 max-lg:justify-between max-lg:w-full max-lg:absolute max-lg:bottom-3 max-lg:px-2 items-center">
+        <div className="flex gap-5 items-center">
           <button className="rounded-xl">
             <Image src={languange} alt="languange" width={30} height={30} />
           </button>
-          <button className="text-xl h-[40px] bg-third px-5 rounded-xl focus:ring-4 focus:outline-none">
+          <button className="text-xl h-[40px] bg-third px-5 rounded-xl focus:ring-4 focus:outline-none max-lg:hidden">
             Bejelentkezés
           </button>
         </div>
