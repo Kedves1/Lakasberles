@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import React from 'react'
-import Intercom from '@intercom/messenger-js-sdk';
+import React from "react";
+import Intercom from "@intercom/messenger-js-sdk";
 
 const HelpDesk = () => {
-    Intercom({
-        app_id: 'k5rjzv1e'
-    })
-    
-    return <div>dasdsa</div>;
-}
+  Intercom({
+    app_id: "k5rjzv1e",
+  });
 
-export default HelpDesk
+  return <></>;
+};
+
+export default HelpDesk;

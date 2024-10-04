@@ -7,7 +7,7 @@ function Carousel({ pictures }: { pictures: string[] }) {
   const [picNum, SetPicNum] = useState(0);
 
   return (
-    <div className="w-full h-[200px] relative rounded-xl flex flex-shrink-0 flex-grow-0 overflow-hidden">
+    <div className="w-full h-[150px] relative rounded-xl flex flex-shrink-0 flex-grow-0 overflow-hidden">
       {pictures.map((picture: string, i: number) => {
         return (
           <Image

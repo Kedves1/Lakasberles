@@ -1,58 +1,62 @@
-"use client";
-
-import { cn } from "@/lib/utils";
-import React, { useState } from "react";
-import Filtericon from "@/img/Filter.svg"
+import React from "react";
+import FilterIcon from "@/img/Filter.svg";
 import Image from "next/image";
+import Link from "next/link";
 
-type category = {
-  name: string;
-  picture: string;
-};
+const Categories = () => {
+  const Categories = [
+    {
+      Name: "Nyaralók",
+      Icon: FilterIcon,
+      Route: "/",
+    },
+    {
+      Name: "Nyaralók",
+      Icon: FilterIcon,
+      Route: "/",
+    },
+    {
+      Name: "Nyaralók",
+      Icon: FilterIcon,
+      Route: "/",
+    },
+    {
+      Name: "Nyaralók",
+      Icon: FilterIcon,
+      Route: "/",
+    },
+    {
+      Name: "Nyaralók",
+      Icon: FilterIcon,
+      Route: "/",
+    },
+    {
+      Name: "Nyaralók",
+      Icon: FilterIcon,
+      Route: "/",
+    },
+  ];
 
-const Categories = ({ categories }: { categories: category[] }) => {
-  const [IsCategoryOpen, ToggleCategoryOpen] = useState(false);
-  categories.map(e=>{return e})
-  const ToggleCategory = () => {
-    ToggleCategoryOpen(!IsCategoryOpen);
-  };
   return (
-    <>
-      <button
-        className={cn(
-          "rounded-se-xl rounded-ee-xl w-1/3 max-w-[80px] h-full bg-third flex gap-2 flex-col items-center justify-center focus:ring-4 focus:outline-0 flex-shrink-0 flex-grow-0",
-          { "gap-0": IsCategoryOpen }
-        )}
-        onClick={ToggleCategory}
-        aria-label="Category menu"
-      >
-        <Image src={Filtericon} alt="filter"/>
-      </button>
-      <div
-        className={cn(
-          "min-h-[420px] p-5 bg-third rounded-xl shadow-sm shadow-black absolute bottom-[-200px] left-[200px] duration-500 transition-all ease-in-out scale-0 w-full max-w-[800px] z-50 max-lg:left-0",
-          {
-            " scale-100 bottom-[-450px] left-[100px]": IsCategoryOpen,
-          }
-        )}
-      >
-        {/* <div className="text-4xl w-full border-b-4 border-b-black pb-2 mb-10">
-          Kategóriák
-        </div>
-        <div className="flex flex-wrap w-full gap-5">
-          {categories.map((category: category) => {
-            return (
-              <div className="size-32 bg-gray-600 relative" key={category.name}>
-                <Image src={category.picture} alt={category.name} fill />
-                <div className="w-full h-10 bg-black/70 text-white flex justify-center items-center text-2xl absolute bottom-0">
-                  {category.name}
-                </div>
+    <div className="w-full bg-white py-3 lg:px-10 border-b-[1px] border-b-black/20 flex lg:gap-7 gap-10 overflow-scroll">
+      {Categories.map((category, i) => {
+        return (
+          <div className="" key={i}>
+            <Link href={category.Route} className="flex gap-2 items-center">
+              <div className="flex-shrink-0">
+                <Image
+                  src={category.Icon}
+                  alt={category.Name}
+                  width={25}
+                  height={25}
+                />
               </div>
-            );
-          })}
-        </div> */}
-      </div>
-    </>
+              <div className="">{category.Name}</div>
+            </Link>
+          </div>
+        );
+      })}
+    </div>
   );
 };
 

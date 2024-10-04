@@ -4,7 +4,7 @@ import languange from "@/img/languange.svg";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import housepic from "@/img/house.svg";
-import Categories from "./Categories";
+import Filters from "./Filters";
 
 function Navbar({
   searchParams,
@@ -41,27 +41,36 @@ function Navbar({
   ];
 
   return (
-    <header className="w-[100dvw] py-3 bg-primary border-b-[1px] border-b-black/20 flex justify-between px-1 lg:px-10 items-center relative">
-      <div className="">
-        <span className="text-3xl font-extralight max-lg:hidden">Levegő BéEnBé</span>
+    <header className="w-[100dvw] py-3 bg-white border-b-[1px] border-b-black/20 flex justify-between px-1 lg:px-10 items-center relative">
+      <div className="flex items-center gap-4 flex-shrink-0">
+        <Image
+          src="/icon.png"
+          alt="logo"
+          width={50}
+          height={50}
+          className="rounded-full"
+        />
+        <span className="text-3xl font-extralight max-xl:hidden">
+          Levegő <span className="text-highlight">BéEnBé</span>
+        </span>
       </div>
-      <div className="flex min-w-[200px] max-w-[500px] h-[50px] lg:relative rounded-xl">
+      <div className="flex max-sm:w-[200px] w-[500px] h-[50px] lg:relative rounded-xl">
         <input
           type="text"
           id="search"
           placeholder="Keresés"
-          className="px-5 py-2 w-2/3 rounded-ss-xl rounded-es-xl focus:outline-none text-xl focus:ring-4 placeholder:font-thin flex-shrink-0 flex-grow-0"
+          className="px-5 py-2 w-2/3 rounded-ss-xl rounded-es-xl focus:outline-none text-xl focus:ring-4 placeholder:font-thin border-[1px] border-black/20 border-r-0"
         />
-        <Categories categories={categories} />
+        <Filters categories={categories} />
       </div>
       <div className="flex justify-between gap-20">
         <div className="flex gap-5 max-lg:hidden">
           <Link href={"?incountry=true"} tabIndex={-1}>
             <button
               className={cn(
-                "h-[50px] bg-third rounded-ss-xl rounded-es-xl px-5 focus:ring-4 focus:outline-none",
+                "h-[50px] bg-highlight rounded-ss-xl rounded-es-xl px-5 focus:ring-4 focus:outline-none",
                 {
-                  "bg-[#f5ebe065] pointer-events-none": incountry,
+                  "bg-defused pointer-events-none": incountry,
                 }
               )}
             >
@@ -71,9 +80,9 @@ function Navbar({
           <Link href={"?incountry=false"} tabIndex={-1}>
             <button
               className={cn(
-                "h-[50px] bg-third rounded-se-xl rounded-ee-xl px-5 focus:ring-4 focus:outline-none",
+                "h-[50px] bg-highlight rounded-se-xl rounded-ee-xl px-5 focus:ring-4 focus:outline-none",
                 {
-                  "bg-[#f5ebe065] pointer-events-none": !incountry,
+                  "bg-defused pointer-events-none": !incountry,
                 }
               )}
             >
@@ -81,11 +90,17 @@ function Navbar({
             </button>
           </Link>
         </div>
-        <div className="flex gap-5 items-center">
+        <div className="flex gap-5 items-center flex-shrink-0">
           <button className="rounded-xl">
-            <Image src={languange} alt="languange" width={30} height={30} />
+            <Image
+              src={languange}
+              alt="languange"
+              width={30}
+              height={30}
+              className="flex-shrink-0 flex-grow-0"
+            />
           </button>
-          <button className="text-xl h-[40px] bg-third px-5 rounded-xl focus:ring-4 focus:outline-none max-lg:hidden">
+          <button className="text-xl h-[40px] bg-highlight px-5 rounded-xl focus:ring-4 focus:outline-none max-lg:hidden">
             Bejelentkezés
           </button>
         </div>

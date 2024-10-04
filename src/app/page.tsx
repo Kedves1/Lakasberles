@@ -3,6 +3,8 @@ import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 import housepic from "@/img/house.svg";
 import HelpDesk from "./components/HelpDesk";
+import Categories from "./components/Categories";
+import Image from "next/image";
 
 export default function Home({
   searchParams,
@@ -35,22 +37,37 @@ export default function Home({
       <Suspense>
         <Navbar searchParams={searchParams} />
       </Suspense>
+      <Categories />
       <main>
-        <div className="p-10 w-full flex gap-5 flex-wrap">
-          {houses.map((house, i) => {
-            return (
-              <Card
-                distance={house.distance}
-                price={house.price}
-                owner={house.owner}
-                pictures={house.pictures}
-                key={i}
-              />
-            );
-          })}
+        <div className="relative w-full h-[600px]">
+          <Image
+            src={"https://placehold.co/600x400"}
+            fill
+            className="object-cover"
+            alt="banner"
+          />
+        </div>
+        <div className="max-w-[1200px] bg-white m-auto h-[600px] my-11 rounded-xl shadow-sm shadow-black/20 max-sm:mx-1"></div>
+        <div className="m-auto max-sm:mx-1 rounded-xl bg-white text-4xl pt-4 max-w-[1800px] pb-10">
+          <div className="border-b-[2px] border-b-black/20 mx-10">
+            Kedvelt Házak
+          </div>
+          <div className="px-10 pt-3 w-full flex gap-5 flex-wrap">
+            {houses.map((house, i) => {
+              return (
+                <Card
+                  distance={house.distance}
+                  price={house.price}
+                  owner={house.owner}
+                  pictures={house.pictures}
+                  key={i}
+                />
+              );
+            })}
+          </div>
         </div>
       </main>
-      <HelpDesk/>
+      <HelpDesk />
     </>
   );
 }

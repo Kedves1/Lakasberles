@@ -8,10 +8,13 @@
 :root {
   --third: #f5ebe0;
   --secondary: #d5bdaf;
-  --primary: #f0f0f0;
+  --background: #f5f5f7;
+  --highlight: #81d0e5;
+  --defused: #c4e5ee;
+  --hover: #73adbd;
 }
 @layer utilities {
   header button {
-    @apply hover:bg-[#f5ebe0ab] transition-all ease-in-out duration-75;
+    @apply hover:bg-hover transition-all ease-in-out duration-75;
   }
 }

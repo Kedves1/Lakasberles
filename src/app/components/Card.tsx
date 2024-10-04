@@ -13,9 +13,9 @@ function Card({
   pictures: string[];
 }) {
   return (
-    <div className="w-full max-w-[280px] pt-1 h-[400px] bg-secondary rounded-xl px-1 shadow-sm shadow-black">
+    <div className="w-full max-w-[280px] pt-1 h-[350px] bg-white rounded-xl px-1 shadow-sm shadow-black/20">
       <Carousel pictures={pictures} />
-      <div className="w-[85%] m-auto bg-third h-[100px] mt-6 rounded-xl flex justify-center items-center flex-col">
+      <div className="w-[85%] m-auto bg-background h-[100px] mt-6 rounded-xl flex justify-center items-center flex-col">
         <div className="text-xl">
           {distance} km
           <span className="text-[12px] text-slate-600">-re tőled</span>
@@ -27,7 +27,7 @@ function Card({
         <div className="text-xl">{owner}</div>
       </div>
       <div className="w-full flex justify-center mt-4">
-        <button className="text-lg h-[40px] bg-third px-5 rounded-xl focus:ring-4 focus:outline-none hover:bg-[#f5ebe0ab] transition-all ease-in-out duration-75">
+        <button className="text-lg h-[40px] bg-highlight px-5 rounded-xl focus:ring-4 focus:outline-none hover:bg-hover transition-all ease-in-out duration-75">
           További információk
         </button>
       </div>
