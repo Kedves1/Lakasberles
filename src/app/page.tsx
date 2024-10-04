@@ -45,6 +45,7 @@ export default function Home({
             fill
             className="object-cover"
             alt="banner"
+            priority
           />
         </div>
         <div className="max-w-[1200px] bg-white m-auto h-[600px] my-11 rounded-xl shadow-sm shadow-black/20 max-sm:mx-1"></div>
