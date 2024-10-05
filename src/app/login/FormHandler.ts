@@ -7,7 +7,7 @@ import { eq } from "drizzle-orm";
 import { login } from "./CookieHandler";
 
 type NewUser = typeof users.$inferInsert;
-let saltRounds = 10;
+const saltRounds = 10;
 
 export const handleLoginSubmit = async (formData: FormData) => {
   const Data = {

@@ -8,6 +8,6 @@ const connection = await mysql.createConnection({
   database: process.env.DB_DATABASE,
 });
 
-let db: MySql2Database = drizzle(connection);
+const db: MySql2Database = drizzle(connection);
 
 export default db;

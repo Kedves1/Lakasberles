@@ -1,14 +1,13 @@
-import { SignJWT, jwtVerify } from "jose";
+import { JWTPayload, SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
-import db from "@/database";
 import { users } from "@/database/schemas/users";
 
 const secretKey = process.env.COOKIE_KEY;
 const key = new TextEncoder().encode(secretKey);
 type NewUser = typeof users.$inferInsert;
 
-export async function encrypt(payload: any) {
+export async function encrypt(payload: JWTPayload) {
   return await new SignJWT(payload)
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
