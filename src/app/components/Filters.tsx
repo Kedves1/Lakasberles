@@ -4,13 +4,20 @@ import { cn } from "@/lib/utils";
 import React, { useState } from "react";
 import Filtericon from "@/img/Filter.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 type category = {
   name: string;
   picture: string;
 };
 
-const Filters = ({ categories }: { categories: category[] }) => {
+const Filters = ({
+  categories,
+  session,
+}: {
+  categories: category[];
+  session: any;
+}) => {
   const [IsCategoryOpen, ToggleCategoryOpen] = useState(false);
   categories.map((e) => {
     return e;
@@ -38,6 +45,15 @@ const Filters = ({ categories }: { categories: category[] }) => {
           }
         )}
       >
+        {session ? (
+          <div className="lg:hidden">{session.user.username}</div>
+        ) : (
+          <Link href={"/login"}>
+            <button className="text-xl h-[40px] bg-highlight px-5 rounded-xl focus:ring-4 focus:outline-none lg:hidden">
+              Bejelentkezés
+            </button>
+          </Link>
+        )}
         {/* <div className="text-4xl w-full border-b-4 border-b-black pb-2 mb-10">
           Kategóriák
         </div>

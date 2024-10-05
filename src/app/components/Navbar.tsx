@@ -63,7 +63,7 @@ async function Navbar({
           placeholder="Keresés"
           className="px-5 py-2 w-2/3 rounded-ss-xl rounded-es-xl focus:outline-none text-xl focus:ring-4 placeholder:font-thin border-[1px] border-black/20 border-r-0"
         />
-        <Filters categories={categories} />
+        <Filters categories={categories} session={session} />
       </div>
       <div className="flex justify-between gap-20">
         <div className="flex gap-5 max-lg:hidden">
@@ -103,7 +103,7 @@ async function Navbar({
             />
           </button>
           {session ? (
-            <div className="">{session.user.username}</div>
+            <div className=" max-lg:hidden">{session.user.username}</div>
           ) : (
             <Link href={"/login"}>
               <button className="text-xl h-[40px] bg-highlight px-5 rounded-xl focus:ring-4 focus:outline-none max-lg:hidden">
