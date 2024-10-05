@@ -12,6 +12,7 @@ const LoginForm = () => {
             id="username"
             name="username"
             placeholder="Felhasználónév"
+            required
           />
         </div>
         <div className="">
@@ -20,6 +21,7 @@ const LoginForm = () => {
             id="password"
             name="password"
             placeholder="Jelszó"
+            required
           />
         </div>
         <div className="">

@@ -8,11 +8,29 @@ const RegisterForm = () => {
       <div className="">regisztráció</div>
       <form className="" action={handleRegisterSubmit}>
         <div className="">
-          <input type="email" id="email" name="email" placeholder="Email" />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
         </div>
         <div className="">
-          <input type="text" id="knev" name="knev" placeholder="Keresztnév" />
-          <input type="text" id="vnev" name="vnev" placeholder="Vezetéknév" />
+          <input
+            type="text"
+            id="knev"
+            name="knev"
+            placeholder="Keresztnév"
+            required
+          />
+          <input
+            type="text"
+            id="vnev"
+            name="vnev"
+            placeholder="Vezetéknév"
+            required
+          />
         </div>
         <div className="">
           <input
@@ -20,6 +38,7 @@ const RegisterForm = () => {
             id="username"
             name="username"
             placeholder="Felhasználónév"
+            required
           />
         </div>
         <div className="">
@@ -28,6 +47,7 @@ const RegisterForm = () => {
             id="password"
             name="password"
             placeholder="Jelszó"
+            required
           />
         </div>
         <div className="">

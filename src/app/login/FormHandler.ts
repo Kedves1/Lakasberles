@@ -14,11 +14,15 @@ export const handleLoginSubmit = async (formData: FormData) => {
     username: formData.get("username") as string,
     password: formData.get("password") as string,
   };
+
+  if (Data.username == "" || Data.password == "") return;
+
   const loginuser = await db
     .select()
     .from(users)
     .where(eq(users.username, Data.username));
 
+  console.log(loginuser);
   if (loginuser.length == 0) {
     return;
   } else {
@@ -42,6 +46,15 @@ export const handleRegisterSubmit = async (formData: FormData) => {
     vezeteknev: formData.get("knev") as string,
     keresztnev: formData.get("vnev") as string,
   };
+
+  if (
+    Data.username == "" ||
+    Data.password == "" ||
+    Data.email == "" ||
+    Data.vezeteknev == "" ||
+    Data.keresztnev == ""
+  )
+    return;
 
   if (
     (await db.select().from(users).where(eq(users.username, Data.username)))
