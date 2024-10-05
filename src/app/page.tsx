@@ -5,8 +5,9 @@ import housepic from "@/img/house.svg";
 import HelpDesk from "./components/HelpDesk";
 import Categories from "./components/Categories";
 import Image from "next/image";
+import { getSession } from "./login/CookieHandler";
 
-export default function Home({
+export default async function Home({
   searchParams,
 }: {
   searchParams?: { [key: string]: string | string[] | undefined };
@@ -31,7 +32,7 @@ export default function Home({
       pictures: [housepic, housepic, housepic, housepic],
     },
   ];
-
+  const session = await getSession();
   return (
     <>
       <Suspense>

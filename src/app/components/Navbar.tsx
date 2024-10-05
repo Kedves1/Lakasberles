@@ -5,8 +5,9 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import housepic from "@/img/house.svg";
 import Filters from "./Filters";
+import { getSession } from "../login/CookieHandler";
 
-function Navbar({
+async function Navbar({
   searchParams,
 }: {
   searchParams?: { [key: string]: string | string[] | undefined };
@@ -39,6 +40,7 @@ function Navbar({
       picture: housepic,
     },
   ];
+  const session = await getSession();
 
   return (
     <header className="w-[100dvw] py-3 bg-white border-b-[1px] border-b-black/20 flex justify-between px-1 lg:px-10 items-center relative">
@@ -100,9 +102,15 @@ function Navbar({
               className="flex-shrink-0 flex-grow-0"
             />
           </button>
-          <button className="text-xl h-[40px] bg-highlight px-5 rounded-xl focus:ring-4 focus:outline-none max-lg:hidden">
-            Bejelentkezés
-          </button>
+          {session ? (
+            <div className="">{session.user.username}</div>
+          ) : (
+            <Link href={"/login"}>
+              <button className="text-xl h-[40px] bg-highlight px-5 rounded-xl focus:ring-4 focus:outline-none max-lg:hidden">
+                Bejelentkezés
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </header>
