@@ -1,19 +1,13 @@
 import Image from "next/image";
 import React from "react";
 import languange from "@/img/languange.svg";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
 import housepic from "@/img/house.svg";
 import Filters from "./Filters";
-import { getSession } from "../login/CookieHandler";
+import { getSession } from "../../(auth)/login/CookieHandler";
+import CountryButton from "./CountryButton";
 
-async function Navbar({
-  searchParams,
-}: {
-  searchParams?: { [key: string]: string | string[] | undefined };
-}) {
-  const incountry = (searchParams?.incountry || "true") === "true";
-
+async function Navbar() {
   const categories = [
     {
       name: "Ház1",
@@ -66,32 +60,7 @@ async function Navbar({
         <Filters categories={categories} session={session} />
       </div>
       <div className="flex justify-between gap-20">
-        <div className="flex gap-5 max-lg:hidden">
-          <Link href={"?incountry=true"} tabIndex={-1}>
-            <button
-              className={cn(
-                "h-[50px] bg-highlight rounded-ss-xl rounded-es-xl px-5 focus:ring-4 focus:outline-none",
-                {
-                  "bg-defused pointer-events-none": incountry,
-                }
-              )}
-            >
-              Országon Belül
-            </button>
-          </Link>
-          <Link href={"?incountry=false"} tabIndex={-1}>
-            <button
-              className={cn(
-                "h-[50px] bg-highlight rounded-se-xl rounded-ee-xl px-5 focus:ring-4 focus:outline-none",
-                {
-                  "bg-defused pointer-events-none": !incountry,
-                }
-              )}
-            >
-              Országon Kívül
-            </button>
-          </Link>
-        </div>
+        <CountryButton />
         <div className="flex gap-5 items-center flex-shrink-0">
           <button className="rounded-xl">
             <Image

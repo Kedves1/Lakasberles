@@ -1,16 +1,10 @@
-import { Suspense } from "react";
-import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 import housepic from "@/img/house.svg";
 import HelpDesk from "./components/HelpDesk";
 import Categories from "./components/Categories";
 import Image from "next/image";
 
-export default async function Home({
-  searchParams,
-}: {
-  searchParams?: { [key: string]: string | string[] | undefined };
-}) {
+export default async function Home() {
   const houses = [
     {
       distance: 35,
@@ -33,9 +27,6 @@ export default async function Home({
   ];
   return (
     <>
-      <Suspense>
-        <Navbar searchParams={searchParams} />
-      </Suspense>
       <Categories />
       <main>
         <div className="relative w-full h-[600px]">

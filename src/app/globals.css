@@ -6,9 +6,6 @@
   @apply font-normal;
 }
 :root {
-  --third: #f5ebe0;
-  --secondary: #d5bdaf;
-  --background: #f5f5f7;
   --highlight: #81d0e5;
   --defused: #c4e5ee;
   --hover: #73adbd;

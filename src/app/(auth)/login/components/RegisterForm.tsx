@@ -5,7 +5,7 @@ import { handleRegisterSubmit } from "../FormHandler";
 const RegisterForm = () => {
   return (
     <>
-      <div className="">regisztráció</div>
+      <div className="">Regisztráció</div>
       <form className="" action={handleRegisterSubmit}>
         <div className="">
           <input
