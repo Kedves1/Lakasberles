@@ -12,5 +12,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <>{children}</>;
+  return (
+    <html lang="hu">
+      <body className="antialiased bg-background min-h-screen w-screen">
+        {children}
+      </body>
+    </html>
+  );
 }

@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import bcrypt from "bcrypt";
 import { eq } from "drizzle-orm";
 import { login } from "./CookieHandler";
+import { randomUUID } from "crypto";
 
 type NewUser = typeof users.$inferInsert;
 const saltRounds = 10;
@@ -22,7 +23,6 @@ export const handleLoginSubmit = async (formData: FormData) => {
     .from(users)
     .where(eq(users.username, Data.username));
 
-  console.log(loginuser);
   if (loginuser.length == 0) {
     return;
   } else {
@@ -45,6 +45,7 @@ export const handleRegisterSubmit = async (formData: FormData) => {
     email: formData.get("email") as string,
     vezeteknev: formData.get("knev") as string,
     keresztnev: formData.get("vnev") as string,
+    uuid: randomUUID() as string,
   };
 
   if (
