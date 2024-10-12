@@ -12,11 +12,17 @@ export const handleUploadSubmit = async (formData: FormData) => {
   const arrayBuffer = await imgfile.arrayBuffer();
   const buffer = new Uint8Array(arrayBuffer);
 
-  if (fscheck.existsSync(`./images/${session.user.uuid}`)) {
+  if (fscheck.existsSync(`./public/images/${session.user.uuid}`)) {
     console.log("folder already there no");
-    await fs.writeFile(`./images/${session.user.uuid}/${id}.png`, buffer);
+    await fs.writeFile(
+      `./public/images/${session.user.uuid}/${id}.png`,
+      buffer
+    );
   } else {
-    await fs.mkdir(`./images/${session.user.uuid}`);
-    await fs.writeFile(`./images/${session.user.uuid}/${id}.png`, buffer);
+    await fs.mkdir(`./public/images/${session.user.uuid}`);
+    await fs.writeFile(
+      `./public/images/${session.user.uuid}/${id}.png`,
+      buffer
+    );
   }
 };
