@@ -38,7 +38,7 @@ const Categories = () => {
   ];
 
   return (
-    <div className="w-full bg-white py-3 lg:px-10 border-b-[1px] border-b-black/20 flex lg:gap-7 gap-10 overflow-scroll">
+    <div className="w-full bg-white py-3 lg:px-10 border-b-[1px] border-b-black/20 flex lg:gap-7 gap-10">
       {Categories.map((category, i) => {
         return (
           <div className="" key={i}>
