@@ -4,14 +4,14 @@ import Link from "next/link";
 const LoginForm = () => {
   return (
     <>
-      <div className="text-center py-5 text-6xl">Bejelentkezés</div>
+      <div className="text-center text-6xl">Bejelentkezés</div>
       <form
-        className="flex w-full items-center gap-4 flex-col mt-20"
+        className="flex w-full items-center gap-4 flex-col mt-10"
         action={handleLoginSubmit}
       >
         <div className="flex flex-col gap-2">
           <label htmlFor="username" className="text-3xl">
-            Felhasznáaló
+            Felhasználó
           </label>
           <input
             type="text"
@@ -38,7 +38,7 @@ const LoginForm = () => {
         <div className="">
           <button
             type="submit"
-            className="bg-highlight border-black/20 py-5 px-7 text-2xl rounded-xl"
+            className="bg-highlight border-black/20 py-3 px-5 text-2xl rounded-xl hover:bg-hover transition-all duration-75"
           >
             Bejelentkezés
           </button>

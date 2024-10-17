@@ -2,6 +2,7 @@ import React from "react";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 const Bubble = ({
   searchParams,
 }: {
@@ -25,6 +26,15 @@ const Bubble = ({
           }
         )}
       >
+        <div className="">
+          <Image
+            src={"/icon.png"}
+            alt="logo"
+            width={200}
+            height={200}
+            className="mx-auto mt-10"
+          />
+        </div>
         {isLogin ? <LoginForm /> : <RegisterForm />}
       </div>
     </div>
