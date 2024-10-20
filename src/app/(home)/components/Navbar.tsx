@@ -4,8 +4,9 @@ import languange from "@/img/languange.svg";
 import Link from "next/link";
 import housepic from "@/img/house.svg";
 import Filters from "./Filters";
-import { getSession } from "../../(auth)/login/CookieHandler";
+import { getSession, logout } from "../../(auth)/login/CookieHandler";
 import CountryButton from "./CountryButton";
+import LogoutButton from "@/app/(auth)/login/components/LogoutButton";
 
 async function Navbar() {
   const categories = [
@@ -57,7 +58,7 @@ async function Navbar() {
           placeholder="Keresés"
           className="px-5 py-2 w-2/3 rounded-ss-xl rounded-es-xl focus:outline-none text-xl focus:ring-4 placeholder:font-thin border-[1px] border-black/20 border-r-0"
         />
-        <Filters categories={categories} session={session} />
+        <Filters categories={categories} session={session} logout={logout} />
       </div>
       <div className="flex justify-between gap-20">
         <CountryButton />
@@ -72,7 +73,10 @@ async function Navbar() {
             />
           </button>
           {session ? (
-            <div className=" max-lg:hidden">{session.user.username}</div>
+            <div className=" max-lg:hidden">
+              {session.user.username}
+              <LogoutButton className="max-lg:hidden" />
+            </div>
           ) : (
             <Link href={"/login"}>
               <button className="text-xl h-[40px] bg-highlight px-5 rounded-xl focus:ring-4 focus:outline-none max-lg:hidden">

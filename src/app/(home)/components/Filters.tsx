@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import Filtericon from "@/img/Filter.svg";
 import Image from "next/image";
 import Link from "next/link";
+import LogoutButton from "@/app/(auth)/login/components/LogoutButton";
 
 type category = {
   name: string;
@@ -14,9 +15,11 @@ type category = {
 const Filters = ({
   categories,
   session,
+  logout,
 }: {
   categories: category[];
   session: any;
+  logout: any;
 }) => {
   const [IsCategoryOpen, ToggleCategoryOpen] = useState(false);
   categories.map((e) => {
@@ -46,7 +49,10 @@ const Filters = ({
         )}
       >
         {session ? (
-          <div className="lg:hidden">{session.user.username}</div>
+          <div className="lg:hidden">
+            {session.user.username}
+            <LogoutButton className="lg:hidden" />
+          </div>
         ) : (
           <Link href={"/login"}>
             <button className="text-xl h-[40px] bg-highlight px-5 rounded-xl focus:ring-4 focus:outline-none lg:hidden">
