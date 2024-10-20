@@ -79,7 +79,7 @@ async function Navbar() {
             </div>
           ) : (
             <Link href={"/login"}>
-              <button className="text-xl h-[40px] bg-highlight px-5 rounded-xl focus:ring-4 focus:outline-none max-lg:hidden">
+              <button className="text-xl h-[40px] bg-highlight px-5 rounded-xl max-lg:hidden">
                 Bejelentkezés
               </button>
             </Link>

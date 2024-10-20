@@ -6,23 +6,23 @@ const LoginForm = () => {
     <>
       <div className="text-center text-6xl">Bejelentkezés</div>
       <form
-        className="flex w-full items-center gap-4 flex-col mt-10"
+        className="flex w-full max-w-[300px] mx-auto items-center gap-4 flex-col mt-10 flex-shrink-0"
         action={handleLoginSubmit}
       >
-        <div className="flex flex-col gap-2">
-          <label htmlFor="username" className="text-3xl">
-            Felhasználó
+        <div className="flex w-full flex-col gap-2">
+          <label htmlFor="username" className="text-3xl ">
+            Felhasználónév
           </label>
           <input
             type="text"
             id="username"
             name="username"
             placeholder="Felhasználónév"
-            className="w-[400px] py-5 pl-5 rounded-xl"
+            className="text-xl w-full py-3 pl-5 rounded-xl"
             required
           />
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex w-full flex-col gap-2">
           <label htmlFor="password" className="text-3xl">
             Jelszó
           </label>
@@ -31,7 +31,7 @@ const LoginForm = () => {
             id="password"
             name="password"
             placeholder="Jelszó"
-            className="w-[400px] py-5 pl-5 rounded-xl"
+            className="text-xl w-full py-3 pl-5 rounded-xl"
             required
           />
         </div>
@@ -44,9 +44,12 @@ const LoginForm = () => {
           </button>
         </div>
       </form>
-      <div className="absolute bottom-4 flex justify-center w-full">
+
+      <div className="flex justify-center mt-20 w-full">
         <Link href={"?forms=register"} className="text-xl">
-          <button>Regisztráció</button>
+          <button className="bg-white rounded-xl py-2 px-8 text-sm">
+            Regisztráció
+          </button>
         </Link>
       </div>
     </>

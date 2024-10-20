@@ -6,6 +6,7 @@
   @apply font-normal;
 }
 :root {
+  --background: #f0f2f5;
   --highlight: #81d0e5;
   --defused: #c4e5ee;
   --hover: #73adbd;
@@ -13,5 +14,28 @@
 @layer utilities {
   header button {
     @apply hover:bg-hover transition-all ease-in-out duration-75;
+  }
+  /* width */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  *:focus {
+    @apply focus:ring-4 focus:outline-none;
   }
 }

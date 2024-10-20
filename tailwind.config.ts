@@ -10,8 +10,6 @@ const config: Config = {
     extend: {
       colors: {
         background: "var(--background)",
-        secondary: "var(--secondary)",
-        third: "var(--third)",
         highlight: "var(--highlight)",
         defused: "var(--defused)",
         hover: "var(--hover)",

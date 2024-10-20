@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="hu">
-      <body className="antialiased bg-background min-h-screen w-screen">
+      <body className="antialiased bg-background min-h-screen w-screen overflow-x-clip">
         {children}
       </body>
     </html>

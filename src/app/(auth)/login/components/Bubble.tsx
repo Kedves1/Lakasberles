@@ -18,7 +18,7 @@ const Bubble = ({
     <div className="w-full h-full flex items-center lg:px-32 justify-end relative">
       <div
         className={cn(
-          "shadow-md shadow-black/80 w-[600px] h-[800px] rounded-xl transition-all duration-300 ease-in-out bg-white/60",
+          "shadow-md shadow-black/80 w-full max-w-[600px] pb-3 h-full max-h-fit rounded-xl transition-all relative duration-300 ease-in-out bg-white/60 overflow-y-scroll",
           {
             "lg:translate-x-[-50%]  xl:translate-x-[-80%] 2xl:translate-x-[-130%] min-[1800px]:translate-x-[-170%] ":
               !isLogin,

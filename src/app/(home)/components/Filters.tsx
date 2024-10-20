@@ -46,32 +46,98 @@ const Filters = ({
           }
         )}
       >
-        {session ? (
-          <div className="lg:hidden">
-            {session.user.username}
-            <LogoutButton className="lg:hidden" />
-          </div>
-        ) : (
-          <Link href={"/login"}>
-            <button className="text-xl h-[40px] bg-highlight px-5 rounded-xl focus:ring-4 focus:outline-none lg:hidden">
-              Bejelentkezés
-            </button>
-          </Link>
-        )}
-        {/* <div className="text-4xl w-full border-b-4 border-b-black pb-2 mb-10">
-          Kategóriák
-        </div>
-        <div className="flex flex-wrap w-full gap-5">
-          {categories.map((category: category) => {
-            return (
-              <div className="size-32 bg-gray-600 relative" key={category.name}>
-                <Image src={category.picture} alt={category.name} fill />
-                <div className="w-full h-10 bg-black/70 text-white flex justify-center items-center text-2xl absolute bottom-0">
-                  {category.name}
-                </div>
+        <div className="flex justify-between">
+          <div className="">
+            {session ? (
+              <div className="lg:hidden flex gap-5">
+                {session.user.username}
+                <LogoutButton className="lg:hidden" />
               </div>
-            );
-          })}
+            ) : (
+              <Link href={"/login"}>
+                <button className="text-xl h-[40px] bg-highlight px-5 rounded-xl focus:ring-4 focus:outline-none lg:hidden">
+                  Bejelentkezés
+                </button>
+              </Link>
+            )}
+          </div>
+          <div className="">
+            <button className="bg-highlight px-5 rounded-xl py-2">
+              Filter
+            </button>
+          </div>
+        </div>
+        <div className="flex justify-between">
+          <div className="flex flex-col w-fit">
+            <label htmlFor="country" className="text-xl">
+              Ország
+            </label>
+            <select
+              name="country"
+              id="country"
+              className="bg-defused rounded-xl py-3 "
+            >
+              <option value="0" selected>
+                Válassz egy országot
+              </option>
+              <option value="">Magyarország</option>
+              <option value="">Németország</option>
+            </select>
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="roomnum" className="text-xl">
+              Szoba szám
+            </label>
+            <input
+              type="number"
+              name="roomnum"
+              id="roomnum"
+              className="bg-defused rounded-xl w-32 pl-2 py-2 text-2xl"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="bathnum" className="text-xl">
+              Fürdő szám
+            </label>
+            <input
+              type="number"
+              name="bathnum"
+              id="bathnum"
+              max={10}
+              className="bg-defused rounded-xl w-32 pl-2 py-2 text-2xl"
+            />
+          </div>
+        </div>
+        {/* <div className="flex justify-between">
+          <div className="flex flex-col w-fit">
+            <label htmlFor="country" className="text-xl">
+              Ország
+            </label>
+            <select
+              name="country"
+              id="country"
+              className="bg-defused rounded-xl py-3 "
+            >
+              <option value="0" selected>
+                Válassz egy országot
+              </option>
+              <option value="">Magyarország</option>
+              <option value="">Németország</option>
+            </select>
+          </div>
+
+          <div className="flex flex-col">
+            <label htmlFor="bathnum" className="text-xl">
+              Fürdő szám
+            </label>
+            <input
+              type="number"
+              name="bathnum"
+              id="bathnum"
+              max={10}
+              className="bg-defused rounded-xl w-32 pl-2 py-2 text-2xl"
+            />
+          </div>
         </div> */}
       </div>
     </>
