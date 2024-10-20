@@ -10,7 +10,7 @@ const LogoutButton = ({ className }: { className: string }) => {
         "text-xl h-[40px] bg-highlight px-5 rounded-xl focus:ring-4 focus:outline-none",
         className
       )}
-      onClick={() => logout({})}
+      onClick={() => logout()}
     >
       Kijelentkezés
     </button>
