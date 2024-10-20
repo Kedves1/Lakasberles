@@ -15,11 +15,9 @@ type category = {
 const Filters = ({
   categories,
   session,
-  logout,
 }: {
   categories: category[];
   session: any;
-  logout: any;
 }) => {
   const [IsCategoryOpen, ToggleCategoryOpen] = useState(false);
   categories.map((e) => {
