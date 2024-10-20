@@ -12,17 +12,13 @@ export const handleUploadSubmit = async (formData: FormData) => {
   const arrayBuffer = await imgfile.arrayBuffer();
   const buffer = new Uint8Array(arrayBuffer);
 
-  if (fscheck.existsSync(`./public/images/${session.user.uuid}`)) {
+  const dirPath = "./src/app/image/assets/";
+
+  if (fscheck.existsSync(`${dirPath}${session.user.uuid}`)) {
     console.log("folder already there no");
-    await fs.writeFile(
-      `./public/images/${session.user.uuid}/${id}.png`,
-      buffer
-    );
+    await fs.writeFile(`${dirPath}${session.user.uuid}/${id}.png`, buffer);
   } else {
-    await fs.mkdir(`./public/images/${session.user.uuid}`);
-    await fs.writeFile(
-      `./public/images/${session.user.uuid}/${id}.png`,
-      buffer
-    );
+    await fs.mkdir(`${dirPath}${session.user.uuid}`);
+    await fs.writeFile(`${dirPath}${session.user.uuid}/${id}.png`, buffer);
   }
 };
