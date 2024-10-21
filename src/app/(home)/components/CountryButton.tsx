@@ -10,19 +10,27 @@ const CountryButton = () => {
   const incountry = (searchParams.get("incountry") || "true") === "true";
   return (
     <div className="flex gap-5 max-lg:hidden">
-      <Link href={"?incountry=true"} tabIndex={-1}>
+      <Link
+        href={"?incountry=true"}
+        tabIndex={-1}
+        className={cn({ "pointer-events-none cursor-default": incountry })}
+      >
         <button
           className={cn(
             "h-[50px] bg-highlight rounded-ss-xl rounded-es-xl px-5 focus:ring-4 focus:outline-none",
             {
-              "bg-defused pointer-events-none": incountry,
+              "bg-defused pointer-events-none cursor-default": incountry,
             }
           )}
         >
           Országon Belül
         </button>
       </Link>
-      <Link href={"?incountry=false"} tabIndex={-1}>
+      <Link
+        href={"?incountry=false"}
+        tabIndex={-1}
+        className={cn({ "pointer-events-none cursor-default": !incountry })}
+      >
         <button
           className={cn(
             "h-[50px] bg-highlight rounded-se-xl rounded-ee-xl px-5 focus:ring-4 focus:outline-none",

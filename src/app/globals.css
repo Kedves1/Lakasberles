@@ -12,9 +12,11 @@
   --hover: #73adbd;
 }
 @layer utilities {
-  header button {
-    @apply hover:bg-hover transition-all ease-in-out duration-75;
+  header button:not(:has(img)),
+  main button:not(:has(img)) {
+    @apply hover:bg-hover transition-all ease-in-out duration-75  select-none;
   }
+
   /* width */
   ::-webkit-scrollbar {
     width: 5px;
@@ -35,7 +37,15 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
-  *:focus {
+  button:focus {
     @apply focus:ring-4 focus:outline-none;
   }
+  input::placeholder,
+  img {
+    @apply select-none;
+  }
+}
+
+a:has(button) {
+  outline: 0 !important;
 }

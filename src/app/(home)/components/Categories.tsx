@@ -38,11 +38,14 @@ const Categories = () => {
   ];
 
   return (
-    <div className="w-full bg-white py-3 lg:px-10 border-b-[1px] border-b-black/20 flex lg:gap-7 gap-10">
+    <div className="w-full bg-white/70 backdrop-blur-sm py-3 lg:px-10 border-b-[1px] scroll shadow-sm shadow-black/20 fixed top-[75px] z-50 overflow-hidden border-b-black/20 flex lg:gap-7 gap-10">
       {Categories.map((category, i) => {
         return (
           <div className="" key={i}>
-            <Link href={category.Route} className="flex gap-2 items-center">
+            <Link
+              href={category.Route}
+              className="flex gap-2 items-center focus:ring-4 focus:outline-none"
+            >
               <div className="flex-shrink-0">
                 <Image
                   src={category.Icon}

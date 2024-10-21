@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
-import housepic from "@/img/house.svg";
 import Filters from "./Filters";
 import { getSession } from "../../(auth)/login/CookieHandler";
 import CountryButton from "./CountryButton";
@@ -9,36 +8,10 @@ import LogoutButton from "@/app/(auth)/login/components/LogoutButton";
 import Languange from "./Languange";
 
 async function Navbar() {
-  const categories = [
-    {
-      name: "Ház1",
-      picture: housepic,
-    },
-    {
-      name: "Ház2",
-      picture: housepic,
-    },
-    {
-      name: "Ház3",
-      picture: housepic,
-    },
-    {
-      name: "Ház4",
-      picture: housepic,
-    },
-    {
-      name: "Ház5",
-      picture: housepic,
-    },
-    {
-      name: "Ház6",
-      picture: housepic,
-    },
-  ];
   const session = await getSession();
 
   return (
-    <header className="w-[100dvw] py-3 bg-white border-b-[1px] border-b-black/20 flex justify-between px-1 lg:px-10 items-center ">
+    <header className="w-[100dvw] py-3 fixed top-[0] z-[500] bg-white border-b-[1px] border-b-black/20 flex justify-between px-1 lg:px-10 items-center ">
       <div className="flex items-center gap-4 flex-shrink-0">
         <Image
           src="/icon.png"
@@ -58,7 +31,7 @@ async function Navbar() {
           placeholder="Keresés"
           className="px-5 py-2 w-2/3 rounded-ss-xl rounded-es-xl focus:outline-none text-xl focus:ring-4 placeholder:font-thin border-[1px] border-black/20 border-r-0"
         />
-        <Filters categories={categories} session={session} />
+        <Filters session={session} />
       </div>
       <div className="flex justify-between gap-20">
         <CountryButton />
