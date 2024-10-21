@@ -12,6 +12,10 @@
   --hover: #73adbd;
 }
 @layer utilities {
+  body:has([data-modal-open="true"]) {
+    @apply overflow-hidden pointer-events-none;
+  }
+
   header button:not(:has(img)),
   main button:not(:has(img)) {
     @apply hover:bg-hover transition-all ease-in-out duration-75  select-none;
@@ -37,8 +41,9 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
-  button:focus {
-    @apply focus:ring-4 focus:outline-none;
+  button:focus,
+  input:focus {
+    @apply focus:ring-4 focus:outline-none transition-all;
   }
   input::placeholder,
   img {

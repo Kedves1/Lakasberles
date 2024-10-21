@@ -24,7 +24,7 @@ async function Navbar() {
           Levegő <span className="text-highlight">BéEnBé</span>
         </span>
       </div>
-      <div className="flex max-sm:w-[200px] w-[500px] h-[50px] lg:relative rounded-xl">
+      <div className="flex max-sm:w-[250px] w-[500px] h-[50px] lg:relative rounded-xl">
         <input
           type="text"
           id="search"

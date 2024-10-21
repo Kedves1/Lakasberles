@@ -8,11 +8,11 @@ import { cn } from "@/lib/utils";
 const Languange = () => {
   const [modal, setModal] = useState(false);
 
-  if (modal) {
-    document.body.classList.add("overflow-hidden", "pointer-events-none");
-  } else {
-    document.body.classList.remove("overflow-hidden", "pointer-events-none");
-  }
+  // if (modal) {
+  //   document.body.classList.add("overflow-hidden", "pointer-events-none");
+  // } else {
+  //   document.body.classList.remove("overflow-hidden", "pointer-events-none");
+  // }
 
   return (
     <>
@@ -30,6 +30,7 @@ const Languange = () => {
           "bg-black/40 w-screen h-screen top-0 left-0 scale-0 absolute z-[9999999] grid place-items-center pointer-events-auto",
           { "scale-100": modal }
         )}
+        data-modal-open={modal}
         onClick={() => setModal(false)}
       >
         <div

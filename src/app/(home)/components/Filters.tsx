@@ -35,7 +35,7 @@ const Filters = ({ session }: { session: any }) => {
         className={cn(
           "h-[320px] p-5 bg-white rounded-xl shadow-sm shadow-black absolute bottom-[-160px] left-[100px] duration-[400ms] transition-all ease-in-out scale-0 w-[600px] z-50",
           {
-            " scale-100 bottom-[-325px] left-[100px]  max-md:left-0 max-md:w-full":
+            " scale-100 bottom-[-325px] left-[10%]  max-md:left-0 max-md:w-full":
               IsCategoryOpen,
           }
         )}
