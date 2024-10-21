@@ -76,10 +76,9 @@ const Filters = ({
               name="country"
               id="country"
               className="bg-defused rounded-xl py-3 "
+              defaultValue="0"
             >
-              <option value="0" selected>
-                Válassz egy országot
-              </option>
+              <option value="0">Válassz egy országot</option>
               <option value="">Magyarország</option>
               <option value="">Németország</option>
             </select>

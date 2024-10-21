@@ -1,12 +1,12 @@
 import Image from "next/image";
 import React from "react";
-import languange from "@/img/languange.svg";
 import Link from "next/link";
 import housepic from "@/img/house.svg";
 import Filters from "./Filters";
 import { getSession } from "../../(auth)/login/CookieHandler";
 import CountryButton from "./CountryButton";
 import LogoutButton from "@/app/(auth)/login/components/LogoutButton";
+import Languange from "./Languange";
 
 async function Navbar() {
   const categories = [
@@ -38,7 +38,7 @@ async function Navbar() {
   const session = await getSession();
 
   return (
-    <header className="w-[100dvw] py-3 bg-white border-b-[1px] border-b-black/20 flex justify-between px-1 lg:px-10 items-center relative">
+    <header className="w-[100dvw] py-3 bg-white border-b-[1px] border-b-black/20 flex justify-between px-1 lg:px-10 items-center ">
       <div className="flex items-center gap-4 flex-shrink-0">
         <Image
           src="/icon.png"
@@ -63,15 +63,7 @@ async function Navbar() {
       <div className="flex justify-between gap-20">
         <CountryButton />
         <div className="flex gap-5 items-center flex-shrink-0">
-          <button className="rounded-xl">
-            <Image
-              src={languange}
-              alt="languange"
-              width={30}
-              height={30}
-              className="flex-shrink-0 flex-grow-0"
-            />
-          </button>
+          <Languange />
           {session ? (
             <div className=" max-lg:hidden">
               {session.user.username}

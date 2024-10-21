@@ -46,7 +46,7 @@ const LoginForm = () => {
       </form>
 
       <div className="flex justify-center mt-20 w-full">
-        <Link href={"?forms=register"} className="text-xl">
+        <Link href={"?forms=register"} className="text-xl" tabIndex={-1}>
           <button className="bg-white rounded-xl py-2 px-8 text-sm">
             Regisztráció
           </button>
