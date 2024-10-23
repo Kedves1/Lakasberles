@@ -1,18 +1,39 @@
 "use client";
 
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React, { useState } from "react";
 import languange from "@/img/languange.svg";
 import { cn } from "@/lib/utils";
+import hungaryFlag from "@/img/Flag_of_Hungary.png";
 
 const Languange = () => {
   const [modal, setModal] = useState(false);
 
-  // if (modal) {
-  //   document.body.classList.add("overflow-hidden", "pointer-events-none");
-  // } else {
-  //   document.body.classList.remove("overflow-hidden", "pointer-events-none");
-  // }
+  type languange = {
+    name: string;
+    flag: StaticImageData;
+    preferedCurrency?: string;
+  };
+
+  type currency = {
+    name: string;
+    image: string | StaticImageData;
+  };
+
+  const languanges: languange[] = [
+    {
+      name: "hungary",
+      flag: hungaryFlag,
+      preferedCurrency: "Ft",
+    },
+  ];
+
+  const currencies: [currency] = [
+    {
+      name: "Ft",
+      image: "HUF",
+    },
+  ];
 
   return (
     <>
@@ -31,14 +52,55 @@ const Languange = () => {
           { "scale-100": modal }
         )}
         data-modal-open={modal}
-        onClick={() => setModal(false)}
+        onClick={(e) => {
+          if (e.target == e.currentTarget) {
+            setModal(false);
+          }
+        }}
       >
         <div
           className={cn(
-            "w-full max-w-[700px] h-full scale-0 transition-all duration-300 max-h-[500px] bg-white rounded-xl",
+            "w-full max-w-[700px] p-5 h-full scale-0 relative z-[9999999999999999] transition-all duration-300 max-h-[500px] bg-white rounded-xl",
             { "scale-100": modal }
           )}
-        ></div>
+        >
+          <div className="w-full flex justify-between items-center border-b-[1px] border-b-black/20">
+            <div className="text-3xl">Nyelvek</div>
+            <div
+              className="select-none p-2 hover:bg-black/[0.05] cursor-pointer rounded-xl transition-all text-2xl"
+              draggable="false"
+              onClick={() => setModal(false)}
+            >
+              X
+            </div>
+          </div>
+          <div className="my-5">
+            {languanges.map((languange) => {
+              return (
+                <div
+                  className="w-[110px] h-[120px] bg-white shadow-sm shadow-black/20 rounded-xl"
+                  key={languange.name}
+                >
+                  <div className="w-full flex justify-center py-5">
+                    <Image
+                      src={languange.flag}
+                      alt={languange.name}
+                      width={90}
+                      height={40}
+                    />
+                  </div>
+                  <div className="uppercase font-medium text-center">
+                    {languange.name}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <div className="w-full flex items-center border-b-[1px] border-b-black/20">
+            <div className="text-3xl pb-1">Pénznemek</div>
+          </div>
+          <div className=""></div>
+        </div>
       </div>
     </>
   );
