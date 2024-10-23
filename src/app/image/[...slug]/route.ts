@@ -1,10 +1,8 @@
 import fs from "node:fs";
 import { NextResponse } from "next/server";
 
-export async function GET(
-  req: Request,
-  { params }: { params: { slug: string } }
-) {
+export async function GET(req: Request, props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const filePath = `./src/app/image/assets/${params.slug[0]}/${params.slug[1]}`;
 
   if (fs.existsSync(filePath)) {

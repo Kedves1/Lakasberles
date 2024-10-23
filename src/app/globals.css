@@ -42,12 +42,18 @@
     background: #555;
   }
   button:focus,
-  input:focus {
+  input:focus,
+  select:focus,
+  textarea:focus {
     @apply focus:ring-4 focus:outline-none transition-all;
   }
   input::placeholder,
   img {
     @apply select-none;
+  }
+  input[type="radio"] {
+    box-shadow: none !important;
+    outline: 0 !important;
   }
 }
 

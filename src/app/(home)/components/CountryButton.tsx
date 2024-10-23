@@ -17,7 +17,7 @@ const CountryButton = () => {
       >
         <button
           className={cn(
-            "h-[50px] bg-highlight rounded-ss-xl rounded-es-xl px-5 focus:ring-4 focus:outline-none",
+            "h-[50px] bg-highlight rounded-ss-xl rounded-es-xl text-sm px-5 focus:ring-4 focus:outline-none",
             {
               "bg-defused pointer-events-none cursor-default": incountry,
             }
@@ -33,7 +33,7 @@ const CountryButton = () => {
       >
         <button
           className={cn(
-            "h-[50px] bg-highlight rounded-se-xl rounded-ee-xl px-5 focus:ring-4 focus:outline-none",
+            "h-[50px] bg-highlight rounded-se-xl rounded-ee-xl text-sm px-5 focus:ring-4 focus:outline-none",
             {
               "bg-defused pointer-events-none": !incountry,
             }

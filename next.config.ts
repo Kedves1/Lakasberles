@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: import("next").NextConfig = {
   images: {
+    domains: ["localhost"],
     remotePatterns: [
       {
         protocol: "https",
@@ -8,6 +9,11 @@ const nextConfig = {
       },
     ],
     dangerouslyAllowSVG: true,
+  },
+  experimental: {
+    serverActions: {
+      bodySizeLimit: "100mb",
+    },
   },
 };
 

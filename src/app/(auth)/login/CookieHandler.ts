@@ -34,16 +34,16 @@ export async function login(loginuser: NewUser) {
   const expires = new Date(Date.now() + 100000 * 100000000);
   const session = await encrypt({ user, expires });
   // Save the session in a cookie
-  cookies().set("session", session, { expires, httpOnly: true });
+  (await cookies()).set("session", session, { expires, httpOnly: true });
 }
 
 export async function logout() {
   // Destroy the session
-  cookies().set("session", "", { expires: new Date(0) });
+  (await cookies()).set("session", "", { expires: new Date(0) });
 }
 
 export async function getSession() {
-  const session = cookies().get("session")?.value;
+  const session = (await cookies()).get("session")?.value;
   if (!session) return null;
   return await decrypt(session);
 }

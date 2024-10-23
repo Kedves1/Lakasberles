@@ -45,7 +45,7 @@ const Filters = ({ session }: { session: any }) => {
             <div className="flex justify-between">
               <div className="">
                 {session ? (
-                  <div className="lg:hidden flex gap-5">
+                  <div className="lg:hidden flex gap-2 text-3xl items-center">
                     {session.user.username}
                     <LogoutButton className="lg:hidden" />
                   </div>

@@ -2,17 +2,17 @@
 import { cn } from "@/lib/utils";
 import React from "react";
 import { logout } from "../CookieHandler";
-
+import { IoLogOutOutline } from "react-icons/io5";
 const LogoutButton = ({ className }: { className: string }) => {
   return (
     <button
-      className={cn(
-        "text-xl h-[40px] bg-highlight px-5 rounded-xl focus:ring-4 focus:outline-none",
-        className
-      )}
+      className={cn("text-xl h-[35px] pb-1  rounded-xl", className)}
+      style={{
+        background: "none",
+      }}
       onClick={() => logout()}
     >
-      Kijelentkezés
+      <IoLogOutOutline color="red" size={40} />
     </button>
   );
 };

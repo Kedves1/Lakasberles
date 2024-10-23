@@ -11,40 +11,70 @@ const Categories = () => {
       Route: "/",
     },
     {
-      Name: "Nyaralók",
+      Name: "Lombházak",
       Icon: FilterIcon,
       Route: "/",
     },
     {
-      Name: "Nyaralók",
+      Name: "Kastélyok",
       Icon: FilterIcon,
       Route: "/",
     },
     {
-      Name: "Nyaralók",
+      Name: "Kupolaházak",
       Icon: FilterIcon,
       Route: "/",
     },
     {
-      Name: "Nyaralók",
+      Name: "Kükládi stílus",
       Icon: FilterIcon,
       Route: "/",
     },
     {
-      Name: "Nyaralók",
+      Name: "Háromszög házak",
+      Icon: FilterIcon,
+      Route: "/",
+    },
+    {
+      Name: "Pályaszállások",
+      Icon: FilterIcon,
+      Route: "/",
+    },
+    {
+      Name: "Tópart",
+      Icon: FilterIcon,
+      Route: "/",
+    },
+    {
+      Name: "Villák",
+      Icon: FilterIcon,
+      Route: "/",
+    },
+    {
+      Name: "Háromszög házak",
+      Icon: FilterIcon,
+      Route: "/",
+    },
+    {
+      Name: "Gyönyörű kilátás",
+      Icon: FilterIcon,
+      Route: "/",
+    },
+    {
+      Name: "Lakóhalyók",
       Icon: FilterIcon,
       Route: "/",
     },
   ];
 
   return (
-    <div className="w-full bg-white/70 backdrop-blur-sm py-3 lg:px-10 border-b-[1px] scroll shadow-sm shadow-black/20 fixed top-[75px] z-50 overflow-hidden border-b-black/20 flex lg:gap-7 gap-10">
+    <div className="w-full min-w-[2000px] bg-white/70 h-[50px] flex-shrink-0 flex-grow-0 backdrop-blur-sm py-3 max-lg:px-2 px-10 border-b-[1px]  shadow-sm shadow-black/20 fixed top-[75px] z-50 overflow-clip border-b-black/20 flex gap-4">
       {Categories.map((category, i) => {
         return (
           <div className="" key={i}>
             <Link
               href={category.Route}
-              className="flex gap-2 items-center focus:ring-4 focus:outline-none"
+              className="flex flex-shrink-0 gap-1 items-center focus:ring-4 focus:outline-none"
             >
               <div className="flex-shrink-0">
                 <Image
@@ -54,7 +84,7 @@ const Categories = () => {
                   height={25}
                 />
               </div>
-              <div className="">{category.Name}</div>
+              <div className="flex-shrink-0 text-sm">{category.Name}</div>
             </Link>
           </div>
         );

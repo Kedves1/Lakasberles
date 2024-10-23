@@ -38,7 +38,7 @@ async function Navbar() {
         <div className="flex gap-5 items-center flex-shrink-0">
           <Languange />
           {session ? (
-            <div className=" max-lg:hidden">
+            <div className=" max-lg:hidden text-3xl flex gap-2 items-center">
               {session.user.username}
               <LogoutButton className="max-lg:hidden" />
             </div>

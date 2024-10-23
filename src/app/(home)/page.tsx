@@ -1,30 +1,16 @@
 import Card from "./components/Card";
-import housepic from "@/img/house.svg";
 import HelpDesk from "./components/HelpDesk";
 import Categories from "./components/Categories";
 import Image from "next/image";
-
+import db from "@/database";
+import { houses } from "@/database/schemas/houses";
+import { eq } from "drizzle-orm";
 export default async function Home() {
-  const houses = [
-    {
-      distance: 35,
-      price: 100000,
-      owner: "Gémes Gergő",
-      pictures: [housepic, housepic, housepic, housepic],
-    },
-    {
-      distance: 35,
-      price: 100000,
-      owner: "Gémes Gergő",
-      pictures: [housepic, housepic, housepic, housepic],
-    },
-    {
-      distance: 35,
-      price: 100000,
-      owner: "Gémes Gergő",
-      pictures: [housepic, housepic, housepic, housepic],
-    },
-  ];
+  const popularHouses = await db
+    .select()
+    .from(houses)
+    .where(eq(houses.popular, 1));
+
   return (
     <>
       <Categories />
@@ -44,13 +30,14 @@ export default async function Home() {
             Kedvelt Házak
           </div>
           <div className="px-10 pt-3 w-full flex gap-5 flex-wrap">
-            {houses.map((house, i) => {
+            {popularHouses.map((house, i) => {
               return (
                 <Card
-                  distance={house.distance}
+                  distance={35}
                   price={house.price}
                   owner={house.owner}
-                  pictures={house.pictures}
+                  owner_uuid={house.owner_uuid}
+                  pictures={house.image.split(";")}
                   key={i}
                 />
               );

@@ -22,16 +22,16 @@ const Languange = () => {
 
   const languanges: languange[] = [
     {
-      name: "hungary",
+      name: "magyar",
       flag: hungaryFlag,
-      preferedCurrency: "Ft",
+      preferedCurrency: "Forint",
     },
   ];
 
-  const currencies: [currency] = [
+  const currencies: currency[] = [
     {
-      name: "Ft",
-      image: "HUF",
+      name: "Forint",
+      image: "HUF" as string,
     },
   ];
 
@@ -67,7 +67,7 @@ const Languange = () => {
           <div className="w-full flex justify-between items-center border-b-[1px] border-b-black/20">
             <div className="text-3xl">Nyelvek</div>
             <div
-              className="select-none p-2 hover:bg-black/[0.05] cursor-pointer rounded-xl transition-all text-2xl"
+              className="select-none p-2 after:bg-black/[0.05] hover:after:scale-100 after:scale-0 after:transition-all after:duration-150 after:ease-in-out after:w-full after:h-full after:absolute after:top-0 after:left-0 after:rounded-xl after:block relative  cursor-pointer rounded-xl transition-all ease-in-out text-2xl"
               draggable="false"
               onClick={() => setModal(false)}
             >
@@ -78,7 +78,7 @@ const Languange = () => {
             {languanges.map((languange) => {
               return (
                 <div
-                  className="w-[110px] h-[120px] bg-white shadow-sm shadow-black/20 rounded-xl"
+                  className="w-[110px] h-[120px] bg-white shadow-sm shadow-black/20 rounded-xl hover:bg-black/[0.03] cursor-pointer duration-75 ease-linear transition-all"
                   key={languange.name}
                 >
                   <div className="w-full flex justify-center py-5">
@@ -87,9 +87,14 @@ const Languange = () => {
                       alt={languange.name}
                       width={90}
                       height={40}
+                      className="select-none"
+                      draggable="false"
                     />
                   </div>
-                  <div className="uppercase font-medium text-center">
+                  <div
+                    className="uppercase font-medium text-center select-none"
+                    draggable="false"
+                  >
                     {languange.name}
                   </div>
                 </div>
@@ -99,7 +104,42 @@ const Languange = () => {
           <div className="w-full flex items-center border-b-[1px] border-b-black/20">
             <div className="text-3xl pb-1">Pénznemek</div>
           </div>
-          <div className=""></div>
+          <div className="my-5">
+            {currencies.map((currency) => {
+              return (
+                <div
+                  className="w-[110px] h-[120px] bg-white shadow-sm shadow-black/20 rounded-xl hover:bg-black/[0.03] cursor-pointer duration-75 ease-linear transition-all"
+                  key={currency.name}
+                >
+                  <div className="w-full flex justify-center py-5">
+                    {typeof currency.image === "string" ? (
+                      <div
+                        className="w-[90] h-[40] text-center text-4xl select-none"
+                        draggable="false"
+                      >
+                        {currency.image as unknown as string}
+                      </div>
+                    ) : (
+                      <Image
+                        src={currency.image}
+                        alt={currency.name}
+                        width={90}
+                        height={40}
+                        className="select-none"
+                        draggable="false"
+                      />
+                    )}
+                  </div>
+                  <div
+                    className="uppercase font-medium text-center select-none"
+                    draggable="false"
+                  >
+                    {currency.name}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </>

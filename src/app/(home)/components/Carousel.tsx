@@ -1,21 +1,29 @@
 "use client";
 
-import Image from "next/image";
 import React, { useState } from "react";
 
-function Carousel({ pictures }: { pictures: string[] }) {
+function Carousel({
+  pictures,
+  owner_uuid,
+}: {
+  pictures: string[];
+  owner_uuid: string;
+}) {
   const [picNum, SetPicNum] = useState(0);
-
   return (
-    <div className="w-full h-[150px] relative rounded-xl flex flex-shrink-0 flex-grow-0 overflow-hidden">
+    <div className="w-full h-[150px] relative rounded-xl flex flex-shrink-0 flex-grow-0 overflow-clip">
       {pictures.map((picture: string, i: number) => {
         return (
-          <Image
-            src={picture}
-            className="w-full h-full rounded-xl object-cover flex-shrink-0 flex-grow-0 transition-all ease-in-out duration-300"
-            alt="housepic"
+          <div
+            className="w-full h-full rounded-xl obje transition-all ease-in-out duration-300 flex-shrink-0 flex-grow-0"
+            style={{
+              transform: `translatex(${-272 * picNum}px)`,
+              backgroundImage: `url(http://localhost:3000/image/${owner_uuid}/${picture})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              objectFit: "cover",
+            }}
             key={i}
-            style={{ transform: `translatex(${-272 * picNum}px)` }}
           />
         );
       })}
