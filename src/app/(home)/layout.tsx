@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
 import Navbar from "./components/Navbar";
+import "./home.css";
 
 export const metadata: Metadata = {
   title: "Levegő BéEnBé",

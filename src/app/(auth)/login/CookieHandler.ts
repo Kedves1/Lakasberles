@@ -23,6 +23,7 @@ export async function decrypt(input: string): Promise<any> {
 }
 
 export async function login(loginuser: NewUser) {
+  "use server";
   // Verify credentials && get the user
   const user = {
     email: loginuser.email,
@@ -34,7 +35,8 @@ export async function login(loginuser: NewUser) {
   const expires = new Date(Date.now() + 100000 * 100000000);
   const session = await encrypt({ user, expires });
   // Save the session in a cookie
-  (await cookies()).set("session", session, { expires, httpOnly: true });
+  const cookiess = await cookies();
+  cookiess.set("session", session, { expires, httpOnly: true });
 }
 
 export async function logout() {

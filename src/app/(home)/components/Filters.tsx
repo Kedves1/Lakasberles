@@ -16,10 +16,7 @@ const Filters = ({ session }: { session: any }) => {
   return (
     <>
       <button
-        className={cn(
-          "rounded-se-xl rounded-ee-xl w-1/3 hover:bg-hover max-w-[80px] h-full bg-highlight flex gap-2 flex-col items-center justify-center focus:ring-4 focus:outline-0 flex-shrink-0 flex-grow-0",
-          { "gap-0": IsCategoryOpen }
-        )}
+        className="rounded-se-xl rounded-ee-xl w-1/3 hover:bg-hover max-w-[80px] h-full bg-highlight flex items-center justify-center flex-shrink-0 flex-grow-0"
         onClick={ToggleCategory}
         aria-label="Category menu"
       >

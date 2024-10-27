@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  body:has([data-modal-open="true"]) {
+    @apply overflow-hidden pointer-events-none;
+  }
+
+  header button:not(:has(img)),
+  main button:not(:has(img)) {
+    @apply hover:bg-hover transition-all ease-in-out duration-75  select-none;
+  }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  button:focus,
+  input:focus,
+  select:focus,
+  textarea:focus {
+    @apply ring-4 outline-none transition-all;
+  }
+  input::placeholder,
+  img {
+    @apply select-none;
+  }
+  input[type="radio"] {
+    box-shadow: none !important;
+    outline: 0 !important;
+  }
+}
+
+a:has(button) {
+  outline: 0 !important;
+}

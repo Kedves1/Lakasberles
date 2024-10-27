@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .FormTextInput {
+    @apply text-lg w-full py-3 pl-5 rounded-xl focus:ring-4 focus:outline-0 transition-all text-black;
+  }
+  .FormTextInputError {
+    @apply focus:ring-red-400  text-white bg-red-950/20;
+  }
+  .FormInputBlock {
+    @apply flex w-full flex-col relative pb-6 max-[600px]:pb-4;
+  }
+  .SubmitButton {
+    @apply bg-highlight  select-none py-3 px-5 text-xl rounded-xl hover:bg-hover transition-all duration-75 focus:ring-4 focus:outline-0;
+  }
+  .RedirectBlock {
+    @apply flex justify-center flex-col items-center gap-1 mt-10 w-full max-[600px]:hidden;
+  }
+  .RedirectButton {
+    @apply bg-white text-black select-none rounded-xl py-2 px-8 text-sm hover:bg-white/90 transition-all focus:ring-4 focus:outline-0;
+  }
+  .InputErrorMessage {
+    @apply text-red-400 absolute bottom-0 max-[700px]:text-xs ml-1;
+  }
+  .InputLoading {
+    @apply !bg-slate-500 !text-white;
+  }
+  .MobileSwitchButton {
+    @apply border-[4px]  border-white/20 bg-white/[0.10] grid place-content-center  backdrop-blur-[6px] rounded-lg transition-all px-2 max-[300px]:text-sm text-xl;
+  }
+}

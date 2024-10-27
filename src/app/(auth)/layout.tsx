@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
+import "./auth.css";
 
 export const metadata: Metadata = {
-  title: "Levegő BéEnBé",
-  description:
-    "Bérelj lakásokat, házakat, nyarólakt blahblah idk majd valaki ide rak vmit, i hope",
+  title: "Levegő BéEnBé | Bejelentkezés",
+  description: "Levegő BéEnBé bejelentkezés oldala. Regisztrálj most!",
 };
 
 export default function RootLayout({

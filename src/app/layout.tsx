@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
+import { Toaster } from "./(auth)/login/components/Toast/toaster";
 
 export const metadata: Metadata = {
   title: "Levegő BéEnBé",
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="hu">
       <body className="antialiased bg-background min-h-screen w-screen overflow-x-clip">
         {children}
+        <Toaster />
       </body>
     </html>
   );

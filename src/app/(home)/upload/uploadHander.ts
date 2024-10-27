@@ -17,30 +17,37 @@ export const handleUploadSubmit = async (formData: FormData) => {
 
   const images: string[] = [];
 
-  imgfiles.map(async (imgfile) => {
-    const arrayBuffer = await imgfile.arrayBuffer();
-    const buffer = new Uint8Array(arrayBuffer);
-    const id = randomUUID();
+  const writeImages = () => {
+    return new Promise<void>((resolve) => {
+      imgfiles.map(async (imgfile) => {
+        const arrayBuffer = await imgfile.arrayBuffer();
+        const buffer = new Uint8Array(arrayBuffer);
+        const id = randomUUID();
 
-    const dirPath = "./src/app/image/assets/";
+        const dirPath = "./src/app/image/assets/";
 
-    if (fscheck.existsSync(`${dirPath}${session.user.uuid}`)) {
-      await fs.writeFile(`${dirPath}${session.user.uuid}/${id}.png`, buffer);
-    } else {
-      await fs.mkdir(`${dirPath}${session.user.uuid}`);
-      await fs.writeFile(`${dirPath}${session.user.uuid}/${id}.png`, buffer);
-    }
+        if (fscheck.existsSync(`${dirPath}${session.user.uuid}`)) {
+          await fs.writeFile(
+            `${dirPath}${session.user.uuid}/${id}.png`,
+            buffer
+          );
+        } else {
+          await fs.mkdir(`${dirPath}${session.user.uuid}`);
+          await fs.writeFile(
+            `${dirPath}${session.user.uuid}/${id}.png`,
+            buffer
+          );
+        }
 
-    images.push(`${id}.png`);
-  });
+        images.push(`${id}.png`);
 
-  function delay() {
-    return new Promise((resolve) => {
-      setTimeout(resolve, 100);
+        if (images.length == imgfiles.length) {
+          resolve();
+        }
+      });
     });
-  }
-  await delay();
-
+  };
+  await writeImages();
   await db.insert(houses).values({
     name: name as string,
     uuid: houseId as string,
