@@ -1,18 +1,8 @@
 import { categories, countries } from "@/config";
 import React from "react";
 
-type SearchParamKeys =
-  | "country"
-  | "roomnum"
-  | "bathnum"
-  | "rating"
-  | "ventelation"
-  | "price"
-  | "category"
-  | "incountry";
-
 type SearchParams = Promise<{
-  [key in SearchParamKeys]: string | string[] | undefined;
+  [key: string]: string | string[] | undefined;
 }>;
 
 const page = async (props: { searchParams: SearchParams }) => {
