@@ -12,15 +12,10 @@ import { Switch } from "./ui/Switch";
 import Form from "next/form";
 import { useRouter, useSearchParams } from "next/navigation";
 const Filters = ({ session }: { session: any }) => {
-  const [IsCategoryOpen, ToggleCategoryOpen] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams.toString());
-
-  const ToggleCategory = () => {
-    ToggleCategoryOpen(!IsCategoryOpen);
-  };
-  const sliderMax = 1000000;
+  const [sliderValue, setSliderValue] = useState<number[]>([]);
 
   const addFilters = (FormData: FormData) => {
     const country = FormData.get("country");
@@ -155,7 +150,14 @@ const Filters = ({ session }: { session: any }) => {
                 </div>
               </div>
               <div className="w-full">
-                <Slider defaultValue={[0]} max={100} step={1} name="price" />
+                <Slider
+                  defaultValue={[0]}
+                  max={100}
+                  value={[sliderValue[0] / 10000 || 0]}
+                  onValueChange={(v) => setSliderValue([v[0] * 10000])}
+                  step={1}
+                  name="price"
+                />
               </div>
             </div>
           </Form>

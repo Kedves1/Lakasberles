@@ -1,28 +1,24 @@
 import { categories, countries } from "@/config";
 import React from "react";
 
-interface SearchParams {
-  country?: string;
-  roomnum?: string;
-  bathnum?: string;
-  rating?: string;
-  ventelation?: string;
-  price?: string;
-  category?: string;
-  incountry?: string;
-}
+type SearchParamKeys =
+  | "country"
+  | "roomnum"
+  | "bathnum"
+  | "rating"
+  | "ventelation"
+  | "price"
+  | "category"
+  | "incountry";
+
+type SearchParams = Promise<{
+  [key in SearchParamKeys]: string | string[] | undefined;
+}>;
 
 const page = async (props: { searchParams: SearchParams }) => {
-  let {
-    country,
-    roomnum,
-    bathnum,
-    rating,
-    ventelation,
-    price,
-    category,
-    incountry,
-  } = await props.searchParams;
+  const params = await props.searchParams;
+  const { price, rating, bathnum, roomnum } = params;
+  let { country, ventelation, category, incountry } = params;
 
   countries.map((c) => {
     if (c.value == country) {
