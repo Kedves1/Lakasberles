@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import languange from "@/img/languange.svg";
 import { cn } from "@/lib/utils";
 import hungaryFlag from "@/img/Flag_of_Hungary.png";
-
+import { X } from "lucide-react";
 const Languange = () => {
   const [modal, setModal] = useState(false);
 
@@ -60,25 +60,25 @@ const Languange = () => {
       >
         <div
           className={cn(
-            "w-full max-w-[700px] p-5 h-full scale-0 relative z-[9999999999999999] transition-all duration-300 max-h-[500px] bg-white rounded-xl",
+            "w-full max-w-[700px] p-5 h-full scale-0 relative z-[9999999999999999] transition-all duration-300 max-h-[500px] bg-main rounded-xl",
             { "scale-100": modal }
           )}
         >
           <div className="w-full flex justify-between items-center border-b-[1px] border-b-black/20">
-            <div className="text-3xl">Nyelvek</div>
+            <div className="text-3xl pb-1">Nyelvek</div>
             <div
               className="select-none p-2 after:bg-black/[0.05] hover:after:scale-100 after:scale-0 after:transition-all after:duration-150 after:ease-in-out after:w-full after:h-full after:absolute after:top-0 after:left-0 after:rounded-xl after:block relative  cursor-pointer rounded-xl transition-all ease-in-out text-2xl"
               draggable="false"
               onClick={() => setModal(false)}
             >
-              X
+              <X />
             </div>
           </div>
           <div className="my-5">
             {languanges.map((languange) => {
               return (
                 <div
-                  className="w-[110px] h-[120px] bg-white shadow-sm shadow-black/20 rounded-xl hover:bg-black/[0.03] cursor-pointer duration-75 ease-linear transition-all"
+                  className="w-[110px] h-[120px] bg-main shadow-sm shadow-black/20 rounded-xl hover:bg-black/[0.03] cursor-pointer duration-75 ease-linear transition-all"
                   key={languange.name}
                 >
                   <div className="w-full flex justify-center py-5">
@@ -108,7 +108,7 @@ const Languange = () => {
             {currencies.map((currency) => {
               return (
                 <div
-                  className="w-[110px] h-[120px] bg-white shadow-sm shadow-black/20 rounded-xl hover:bg-black/[0.03] cursor-pointer duration-75 ease-linear transition-all"
+                  className="w-[110px] h-[120px] bg-main shadow-sm shadow-black/20 rounded-xl hover:bg-black/[0.03] cursor-pointer duration-75 ease-linear transition-all"
                   key={currency.name}
                 >
                   <div className="w-full flex justify-center py-5">

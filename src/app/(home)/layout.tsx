@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "@/app/globals.css";
 import Navbar from "./components/Navbar";
 import "./home.css";
+import HelpDesk from "./components/HelpDesk";
+import Categories from "./components/Categories";
 
 export const metadata: Metadata = {
   title: "Levegő BéEnBé",
@@ -15,9 +17,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="pt-[125px] w-full h-full">
+    <div className="pt-[125px] w-full h-full min-w-[300px]">
       <Navbar />
+      <Categories />
       {children}
+      <HelpDesk />
     </div>
   );
 }

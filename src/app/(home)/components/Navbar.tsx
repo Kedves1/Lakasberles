@@ -11,7 +11,7 @@ async function Navbar() {
   const session = await getSession();
 
   return (
-    <header className="w-[100dvw] py-3 fixed top-[0] z-[500] bg-white border-b-[1px] border-b-black/20 flex justify-between px-1 lg:px-10 items-center ">
+    <header className="w-full py-3 fixed top-[0] z-[500] bg-main border-b-[1px] border-b-black/20 flex justify-between px-1 lg:px-10 items-center ">
       <div className="flex items-center gap-4 flex-shrink-0">
         <Image
           src="/icon.png"

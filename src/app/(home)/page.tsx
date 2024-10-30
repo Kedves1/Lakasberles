@@ -1,6 +1,4 @@
 import Card from "./components/Card";
-import HelpDesk from "./components/HelpDesk";
-import Categories from "./components/Categories";
 import Image from "next/image";
 import db from "@/database";
 import { houses } from "@/database/schemas/houses";
@@ -13,7 +11,6 @@ export default async function Home() {
 
   return (
     <>
-      <Categories />
       <main>
         <div className="relative w-full h-[600px]">
           <Image
@@ -45,7 +42,6 @@ export default async function Home() {
           </div>
         </div>
       </main>
-      <HelpDesk />
     </>
   );
 }

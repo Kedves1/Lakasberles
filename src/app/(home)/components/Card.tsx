@@ -15,7 +15,7 @@ function Card({
   owner_uuid: string;
 }) {
   return (
-    <div className="w-full max-w-[280px] pt-1 h-[350px] bg-white rounded-xl px-1 shadow-sm shadow-black/20">
+    <div className="w-full max-w-[280px] pt-1 h-[350px] bg-main rounded-xl px-1 shadow-sm shadow-black/20">
       <Carousel pictures={pictures} owner_uuid={owner_uuid} />
       <div className="w-[85%] m-auto bg-background h-[100px] mt-6 rounded-xl flex justify-center items-center flex-col">
         <div className="text-xl">

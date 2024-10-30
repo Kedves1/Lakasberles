@@ -12,14 +12,14 @@ const Bubble = ({
   const form = searchParams?.forms;
   const isLogin = form ? form === "login" : true;
   return (
-    <div className="w-full h-full flex items-center relative flex-shrink-0">
+    <div className="w-full h-full flex items-center relative flex-shrink-0 overflow-x-scroll">
       <div
         className={cn(
-          "shadow-md shadow-black/80 border-[4px]  border-white/20 flex-shrink-0 max-[600px]:bottom-0 max-[600px]:w-full w-full max-w-[600px]  pb-3 h-full max-h-fit  rounded-xl transition-all absolute min-[800px]:right-[100px] duration-300 ease-in-out bg-white/[0.10] text-white backdrop-blur-[6px] min-[600px]:overflow-y-scroll",
+          "after:shadow-[0px_-12px_20px_5px_rgb(0,0,0)] after:-top-0 z-50 after:-z-10 after:block after:w-full after:h-0 after:absolute border-[4px] border-main/20 bg-main/10 text-secondary max-h-fit h-full min-w-[300px]  w-full max-w-[600px] flex-shrink-0 max-[600px]:bottom-0 min-[800px]:right-[100px]  pb-3 rounded-xl transition-all absolute duration-300 ease-in-out  backdrop-blur-[6px] min-[600px]:overflow-y-scroll",
           { "min-[800px]:!right-[calc(100%-700px)]": !isLogin }
         )}
       >
-        <div className="absolute min-[600px]:hidden top-[-54px] flex justify-between w-full px-2 flex-shrink-0  h-[50px] z-[99999]">
+        <div className="absolute min-[600px]:hidden top-[-64px] flex w-full justify-between px-2 min-[500px]:px-20 flex-shrink-0  h-[50px] -z-20">
           <Link
             href={"/login?forms=register"}
             className={cn("MobileSwitchButton", {

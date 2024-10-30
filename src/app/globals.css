@@ -6,13 +6,35 @@
   @apply font-normal;
 }
 :root {
-  --background: #f0f2f5;
-  --highlight: #81d0e5;
-  --defused: #c4e5ee;
-  --hover: #73adbd;
+  /* All colors RGB */
+  --background: 240, 242, 245;
+  --highlight: 129, 208, 229;
+  --defused: 196, 229, 238;
+  --hover: 115, 173, 189;
 
-  --main: #fff;
+  --main: 255, 255, 255;
 
-  --primary: #000;
-  --secondary: #fff;
+  --primary: 0, 0, 0;
+  --secondary: 255, 255, 255;
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 }
