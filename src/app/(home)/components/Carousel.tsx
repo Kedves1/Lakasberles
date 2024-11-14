@@ -15,10 +15,10 @@ function Carousel({
       {pictures.map((picture: string, i: number) => {
         return (
           <div
-            className="w-full h-full rounded-xl obje transition-all ease-in-out duration-300 flex-shrink-0 flex-grow-0"
+            className="w-full h-full rounded-xl transition-all ease-in-out duration-300 flex-shrink-0 flex-grow-0"
             style={{
               transform: `translatex(${-272 * picNum}px)`,
-              backgroundImage: `url(http://localhost:3000/image/${owner_uuid}/${picture})`,
+              backgroundImage: `url(https://berles.gemes.eu/image/${owner_uuid}/${picture})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               objectFit: "cover",
