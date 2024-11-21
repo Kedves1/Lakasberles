@@ -4,7 +4,7 @@ import React, { Fragment, useState } from "react";
 import Filtericon from "@/img/Filter.svg";
 import Image from "next/image";
 import Link from "next/link";
-import LogoutButton from "@/app/(auth)/login/components/LogoutButton";
+import LogoutButton from "@/app/(frontend)/(auth)/login/components/LogoutButton";
 import { Slider } from "./ui/Slider";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/Popover";
 import Combobox from "./Combobox";

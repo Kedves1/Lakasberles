@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "@/app/globals.css";
+import "@/app/(frontend)/globals.css";
 import { Toaster } from "./(auth)/login/components/Toast/toaster";
 
 export const metadata: Metadata = {
