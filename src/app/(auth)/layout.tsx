@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "@/app/(frontend)/globals.css";
+import "@/app/globals.css";
 import "./auth.css";
 
 export const metadata: Metadata = {

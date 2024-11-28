@@ -4,7 +4,7 @@ import Link from "next/link";
 import Filters from "./Filters";
 import { getSession } from "../../(auth)/login/CookieHandler";
 import CountryButton from "./CountryButton";
-import LogoutButton from "@/app/(frontend)/(auth)/login/components/LogoutButton";
+import LogoutButton from "@/app/(auth)/login/components/LogoutButton";
 import Languange from "./Languange";
 
 async function Navbar() {
