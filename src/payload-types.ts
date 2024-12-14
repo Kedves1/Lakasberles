@@ -13,8 +13,10 @@ export interface Config {
   };
   collections: {
     users: User;
-    media: Media;
+    pfps: Pfp;
     customers: Customer;
+    housepics: Housepic;
+    houses: House;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -22,8 +24,10 @@ export interface Config {
   collectionsJoins: {};
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
-    media: MediaSelect<false> | MediaSelect<true>;
+    pfps: PfpsSelect<false> | PfpsSelect<true>;
     customers: CustomersSelect<false> | CustomersSelect<true>;
+    housepics: HousepicsSelect<false> | HousepicsSelect<true>;
+    houses: HousesSelect<false> | HousesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -101,11 +105,10 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
+ * via the `definition` "pfps".
  */
-export interface Media {
+export interface Pfp {
   id: string;
-  alt: string;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -127,7 +130,7 @@ export interface Customer {
   username: string;
   firstname: string;
   lastname: string;
-  picture?: (string | null) | Media;
+  picture?: (string | null) | Pfp;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -141,6 +144,75 @@ export interface Customer {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "housepics".
+ */
+export interface Housepic {
+  id: string;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "houses".
+ */
+export interface House {
+  id: string;
+  housepics?:
+    | {
+        pictures: string | Housepic;
+        id?: string | null;
+      }[]
+    | null;
+  name: string;
+  owner: string | Customer;
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  /**
+   * @minItems 2
+   * @maxItems 2
+   */
+  location: [number, number];
+  price: number;
+  inuse?: boolean | null;
+  categories: 'mansion' | 'pondside';
+  popular?: boolean | null;
+  spotlight?: boolean | null;
+  reviews?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -151,12 +223,20 @@ export interface PayloadLockedDocument {
         value: string | User;
       } | null)
     | ({
-        relationTo: 'media';
-        value: string | Media;
+        relationTo: 'pfps';
+        value: string | Pfp;
       } | null)
     | ({
         relationTo: 'customers';
         value: string | Customer;
+      } | null)
+    | ({
+        relationTo: 'housepics';
+        value: string | Housepic;
+      } | null)
+    | ({
+        relationTo: 'houses';
+        value: string | House;
       } | null);
   globalSlug?: string | null;
   user:
@@ -227,10 +307,9 @@ export interface UsersSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media_select".
+ * via the `definition` "pfps_select".
  */
-export interface MediaSelect<T extends boolean = true> {
-  alt?: T;
+export interface PfpsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -261,6 +340,47 @@ export interface CustomersSelect<T extends boolean = true> {
   hash?: T;
   loginAttempts?: T;
   lockUntil?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "housepics_select".
+ */
+export interface HousepicsSelect<T extends boolean = true> {
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "houses_select".
+ */
+export interface HousesSelect<T extends boolean = true> {
+  housepics?:
+    | T
+    | {
+        pictures?: T;
+        id?: T;
+      };
+  name?: T;
+  owner?: T;
+  description?: T;
+  location?: T;
+  price?: T;
+  inuse?: T;
+  categories?: T;
+  popular?: T;
+  spotlight?: T;
+  reviews?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

@@ -15,19 +15,34 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.1",
+    "@intercom/messenger-js-sdk": "^0.0.14",
     "@payloadcms/db-mongodb": "latest",
     "@payloadcms/next": "latest",
     "@payloadcms/payload-cloud": "latest",
     "@payloadcms/richtext-lexical": "latest",
+    "@radix-ui/react-dialog": "^1.1.2",
+    "@radix-ui/react-popover": "^1.1.2",
+    "@radix-ui/react-slider": "^1.2.1",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-switch": "^1.1.1",
+    "@radix-ui/react-toast": "^1.2.3",
     "@tailwindcss/postcss": "^4.0.0-beta.4",
+    "@tanstack/react-query": "^5.62.2",
+    "class-variance-authority": "^0.7.1",
+    "cmdk": "^1.0.4",
     "cross-env": "^7.0.3",
     "graphql": "^16.8.1",
+    "intercom": "^0.5.1",
+    "lucide-react": "^0.464.0",
     "next": "15.0.0",
     "payload": "latest",
     "react": "19.0.0-rc-65a56d0e-20241020",
     "react-dom": "19.0.0-rc-65a56d0e-20241020",
+    "react-hook-form": "^7.53.2",
     "sharp": "0.32.6",
-    "tailwind-merge": "^2.5.5"
+    "tailwind-merge": "^2.5.5",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^22.5.4",
@@ -38,6 +53,7 @@
     "eslint-config-next": "15.0.0",
     "postcss": "^8.4.49",
     "tailwindcss": "^4.0.0-beta.4",
+    "tailwindcss-animate": "^1.0.7",
     "typescript": "5.7.2"
   },
   "engines": {

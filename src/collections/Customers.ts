@@ -5,6 +5,9 @@ export const Customers: CollectionConfig = {
   admin: {
     useAsTitle: "email",
   },
+  access: {
+    create: () => true,
+  },
   auth: true,
   fields: [
     {
@@ -31,9 +34,10 @@ export const Customers: CollectionConfig = {
     {
       type: "upload",
       name: "picture",
-      relationTo: "media",
+      relationTo: "pfps",
       saveToJWT: true,
       label: "Profilkép",
+      defaultValue: "67536806445043955c436999",
     },
   ],
 };

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Header from "./components/header/Header";
+import HelpDesk from "../components/HelpDesk";
 
 export const metadata: Metadata = {
   title: "Levegő BéEnBé | Főoldal",
@@ -11,5 +13,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <Header />
+      {children}
+      <HelpDesk />
+    </>
+  );
 }

@@ -1,9 +1,35 @@
 @import "tailwindcss";
+@plugin "../../../node_modules/tailwindcss-animate";
 
-button {
-  @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+@theme {
+  --color-background: oklch(96.05% 0.0046 258.32);
+  --color-highlight: oklch(81.41% 0.083 216.61);
+  --color-defused: oklch(90.09% 0.0368 216.03);
+  --color-hover: oklch(71.35% 0.0645 217.02);
+
+  --color-main: oklch(100% 0 360);
+
+  --color-primary: oklch(0% 0 0);
+  --color-secondary: oklch(100% 0 360);
 }
 
-a {
-  @apply text-blue-500;
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
