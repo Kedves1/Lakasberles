@@ -32,8 +32,8 @@ const Page = async () => {
             Béreljen most lakást
           </div>
           <div className="text-xl text-white/80 font-extralight">
-            Regisztráljon most és használja a "GEROALACSONY" kódot az első
-            vásárlásnál
+            Regisztráljon most és használja a &#34;GEROALACSONY&#34; kódot az
+            első vásárlásnál
           </div>
           <Link
             href={"/search"}
@@ -43,9 +43,9 @@ const Page = async () => {
           </Link>
         </div>
       </div>
-      <div className="flex max-w-[1800px] justify-between m-auto w-full my-11">
-        <div className="flex w-full max-w-[500px] flex-col gap-10 justify-around py-32">
-          <div className="w-full h-[50px] flex items-center text-2xl text-green-600">
+      <div className="flex max-w-[1800px] justify-between m-auto w-full my-11 max-lg:flex-col">
+        <div className="flex w-full max-w-[500px] flex-col gap-10 lg:justify-around max-lg:gap-10 py-32">
+          <div className="w-full flex items-center text-2xl text-green-600">
             <Link
               href={"/upload"}
               className="flex justify-center items-center gap-5"
@@ -60,20 +60,20 @@ const Page = async () => {
               </div>
             </Link>
           </div>
-          <div className="w-full h-[50px] flex items-center text-2xl gap-5 text-indigo-400">
+          <div className="w-full flex items-center text-2xl gap-5 text-indigo-400">
             <Barcode size={50} className="shrink-0" />
             <div className="">
               <div className="">Kapjon kedvezményt az első vásárlására!</div>
               <div className="text-sm text-indigo-400/50">
-                Regisztráljon most és használja a "GEROALACSONY" kódot az első
-                vásárlásnál
+                Regisztráljon most és használja a &#34;GEROALACSONY&#34; kódot
+                az első vásárlásnál
               </div>
             </div>
           </div>
-          <div className="w-full h-[50px] flex items-center text-2xl gap-5 text-orange-900">
+          <div className="w-full flex items-center text-2xl gap-5 text-orange-900">
             <Wallet size={50} className="shrink-0" />
             <div className="">
-              <div className="text-nowrap">
+              <div className="lg:text-nowrap">
                 Minden vásárlásra 50% biztosítást ajánlunk
               </div>
               <div className="text-sm text-orange-950/50">

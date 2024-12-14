@@ -36,7 +36,7 @@ const Header = () => {
           <CountryButton />
           <div className="flex gap-5 items-center flex-shrink-0">
             <Languange />
-            <div className="max-lg:hidden h-[50px]">
+            <div className="max-lg:hidden h-[50px] flex justify-center items-center">
               <Account />
             </div>
           </div>
