@@ -1,4 +1,5 @@
-/** @type {import('next').NextConfig} */
+import { withPayload } from "@payloadcms/next/withPayload";
+
 const nextConfig: import("next").NextConfig = {
   images: {
     remotePatterns: [
@@ -20,4 +21,4 @@ const nextConfig: import("next").NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withPayload(nextConfig);
