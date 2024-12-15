@@ -25,6 +25,8 @@ export default buildConfig({
   },
   collections: [Users, UserPFPMedia, Customers, HousePics, Houses],
   editor: lexicalEditor(),
+  serverURL: process.env.SERVER_URL,
+  csrf: [process.env.SERVER_URL || "https://berles.gemes.eu"],
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
@@ -33,8 +35,5 @@ export default buildConfig({
     url: process.env.DATABASE_URI || "",
   }),
   sharp,
-  plugins: [
-    payloadCloudPlugin(),
-    // storage-adapter-placeholder
-  ],
+  plugins: [payloadCloudPlugin()],
 });
