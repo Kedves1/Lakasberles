@@ -20,7 +20,7 @@ function Carousel({
             className="w-full h-full rounded-xl transition-all ease-in-out duration-300 flex-shrink-0 flex-grow-0"
             style={{
               transform: `translatex(${-272 * picNum}px)`,
-              backgroundImage: `url(http://localhost:3000${(picture.pictures as Housepic).url})`,
+              backgroundImage: `url(${(picture.pictures as Housepic).url})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               objectFit: "cover",
