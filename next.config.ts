@@ -11,6 +11,10 @@ const nextConfig: import("next").NextConfig = {
         protocol: "https",
         hostname: "localhost",
       },
+      {
+        protocol: "https",
+        hostname: "berles.gemes.eu",
+      },
     ],
     dangerouslyAllowSVG: true,
   },
