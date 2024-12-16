@@ -21,7 +21,7 @@ const Page = async () => {
     <main className="pt-[125px]">
       <div className="relative w-full h-[600px] border-b-[3px] border-b-black/20">
         <Image
-          src={"/banner.avif"}
+          src={"/banner.webp"}
           fill
           className="object-cover"
           alt="banner"
@@ -43,7 +43,7 @@ const Page = async () => {
           </Link>
         </div>
       </div>
-      <div className="flex max-w-[1800px] justify-between m-auto w-full my-11 max-lg:flex-col">
+      <div className="flex max-w-[1800px] justify-between m-auto w-full my-11 max-2xl:px-10 max-lg:flex-col">
         <div className="flex w-full max-w-[500px] flex-col gap-10 lg:justify-around max-lg:gap-10 py-32">
           <div className="w-full flex items-center text-2xl text-green-600">
             <Link
@@ -73,7 +73,7 @@ const Page = async () => {
           <div className="w-full flex items-center text-2xl gap-5 text-orange-900">
             <Wallet size={50} className="shrink-0" />
             <div className="">
-              <div className="lg:text-nowrap">
+              <div className="2xl:text-nowrap">
                 Minden vásárlásra 50% biztosítást ajánlunk
               </div>
               <div className="text-sm text-orange-950/50">

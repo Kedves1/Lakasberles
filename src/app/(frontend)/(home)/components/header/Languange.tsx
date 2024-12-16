@@ -21,7 +21,7 @@ const Languange = () => {
   const languanges: languange[] = [
     {
       name: "magyar",
-      flag: "/Flag_of_Hungary.avif",
+      flag: "/Flag_of_Hungary.webp",
       preferedCurrency: "Forint",
     },
   ];
