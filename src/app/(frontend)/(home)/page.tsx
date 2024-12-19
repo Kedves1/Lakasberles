@@ -5,6 +5,7 @@ import Card from "./components/Hero/Card";
 import { Customer } from "@/payload-types";
 import { Barcode, ChevronRight, Upload, Wallet } from "lucide-react";
 import Link from "next/link";
+import HighlightArea from "./components/Hero/HighlightArea";
 const Page = async () => {
   const payload = await getPayload({
     config: configPromise,
@@ -83,7 +84,7 @@ const Page = async () => {
             </div>
           </div>
         </div>
-        <div className="max-w-[1200px] bg-white h-[600px] w-full rounded-xl shadow-sm shadow-black/20"></div>
+        <HighlightArea />
       </div>
       <div className="m-auto max-sm:mx-1 rounded-xl bg-white text-4xl pt-4 max-w-[1800px] pb-10 shadow-sm shadow-black/20">
         <div className="border-b-[2px] border-b-black/20 mx-10">

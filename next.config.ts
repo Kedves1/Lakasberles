@@ -8,7 +8,7 @@ const nextConfig: import("next").NextConfig = {
         hostname: "placehold.co",
       },
       {
-        protocol: "https",
+        protocol: "http",
         hostname: "localhost",
       },
       {
