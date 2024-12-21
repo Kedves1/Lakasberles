@@ -1,23 +1,10 @@
 import Image from "next/image";
-import { getPayload } from "payload";
-import configPromise from "@payload-config";
-import Card from "./components/Hero/Card";
-import { Customer } from "@/payload-types";
 import { Barcode, ChevronRight, Upload, Wallet } from "lucide-react";
 import Link from "next/link";
 import HighlightArea from "./components/Hero/HighlightArea";
-const Page = async () => {
-  const payload = await getPayload({
-    config: configPromise,
-  });
-  const getHouses = async () => {
-    const houses = await payload.find({
-      collection: "houses",
-    });
+import HouseLoader from "./components/HouseLoader";
 
-    return houses;
-  };
-  const houses = await getHouses();
+const Page = async () => {
   return (
     <main className="pt-[125px]">
       <div className="relative w-full h-[600px] border-b-[3px] border-b-black/20">
@@ -86,24 +73,7 @@ const Page = async () => {
         </div>
         <HighlightArea />
       </div>
-      <div className="m-auto max-sm:mx-1 rounded-xl bg-white text-4xl pt-4 max-w-[1800px] pb-10 shadow-sm shadow-black/20">
-        <div className="border-b-[2px] border-b-black/20 mx-10">
-          Kedvelt Házak
-        </div>
-        <div className="px-10 pt-3 w-full flex gap-5 flex-wrap">
-          {houses.docs.map((house, i) => {
-            return (
-              <Card
-                distance={35}
-                price={house.price}
-                owner={(houses.docs[0].owner as Customer).username}
-                pictures={house.housepics!}
-                key={i}
-              />
-            );
-          })}
-        </div>
-      </div>
+      <HouseLoader popular />
     </main>
   );
 };
