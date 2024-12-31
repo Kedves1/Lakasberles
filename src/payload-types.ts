@@ -195,6 +195,7 @@ export interface House {
    */
   location: [number, number];
   price: number;
+  rating: number;
   inuse?: boolean | null;
   categories: 'mansion' | 'pondside';
   popular?: boolean | null;
@@ -374,6 +375,7 @@ export interface HousesSelect<T extends boolean = true> {
   description?: T;
   location?: T;
   price?: T;
+  rating?: T;
   inuse?: T;
   categories?: T;
   popular?: T;

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "./components/header/Header";
 import HelpDesk from "../components/HelpDesk";
 import { Suspense } from "react";
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "Levegő BéEnBé | Főoldal",
@@ -44,6 +45,7 @@ export default function RootLayout({
         <Header />
         {children}
         <HelpDesk />
+        <Footer />
       </Suspense>
     </>
   );

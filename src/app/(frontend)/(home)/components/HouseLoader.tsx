@@ -2,6 +2,13 @@ import { getPayload } from "payload";
 import configPromise from "@payload-config";
 import Card from "./Hero/Card";
 import { Customer } from "@/payload-types";
+import {
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+  Carousel,
+} from "../../components/ui/Carousel";
 
 type HouseLoaderProps = {
   className?: string;
@@ -16,6 +23,8 @@ type HouseLoaderProps = {
   carousel?: boolean;
   popular?: boolean;
   spotlight?: boolean;
+  title: string;
+  increment?: boolean;
 };
 
 const HouseLoader = async ({
@@ -28,9 +37,11 @@ const HouseLoader = async ({
   ventelation,
   category,
   incountry,
-  carousel,
+  carousel = true,
   popular,
   spotlight,
+  title,
+  increment,
 }: HouseLoaderProps) => {
   const payload = await getPayload({
     config: configPromise,
@@ -136,26 +147,63 @@ const HouseLoader = async ({
   };
   const houses = await getHouses();
 
-  return (
-    <div className="m-auto max-sm:mx-1 rounded-xl bg-white text-4xl pt-4 max-w-[1800px] pb-10 shadow-sm shadow-black/20">
-      <div className="border-b-[2px] border-b-black/20 mx-10">
-        Kedvelt Házak
+  if (carousel) {
+    return (
+      <div className="m-auto max-sm:mx-1 rounded-xl bg-white text-4xl pt-4 max-w-[1800px] pb-10 shadow-sm shadow-black/20 mb-20">
+        <div className="border-b-[2px] border-b-black/20 mx-10">{title}</div>
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+            slidesToScroll: 1,
+            watchDrag: false,
+          }}
+          className=" w-[90%] mx-auto"
+        >
+          <CarouselContent className="py-2 px-10">
+            {houses.docs.map((house, i) => {
+              return (
+                <CarouselItem key={i} className="lg:basis-1/5">
+                  <Card
+                    distance={35}
+                    price={house.price}
+                    owner={(house.owner as Customer).username}
+                    pictures={house.housepics!}
+                  />
+                </CarouselItem>
+              );
+            })}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
       </div>
-      <div className="px-10 pt-3 w-full flex gap-5 flex-wrap">
-        {houses.docs.map((house, i) => {
-          return (
-            <Card
-              distance={35}
-              price={house.price}
-              owner={(house.owner as Customer).username}
-              pictures={house.housepics!}
-              key={i}
-            />
-          );
-        })}
+    );
+  } else {
+    return (
+      <div className="m-auto max-sm:mx-1 rounded-xl bg-white text-4xl pt-4 max-w-[1800px] px-10 pb-10 shadow-sm shadow-black/20 mb-20">
+        <div className="border-b-[2px] border-b-black/20">{title}</div>
+        <div className="grid grid-cols-1 lg:grid-cols-5 justify-items-center pt-2">
+          {houses.docs.map((house, i) => {
+            return (
+              <Card
+                distance={35}
+                price={house.price}
+                owner={(house.owner as Customer).username}
+                pictures={house.housepics!}
+                key={i}
+              />
+            );
+          })}
+        </div>
+        {increment && (
+          <button className="border-highlight border-2 text-xl py-2 px-5 mx-auto text-highlight flex items-center cursor-pointer justify-center mt-5 hover:bg-highlight hover:text-white transition-all duration-75 ease-linear rounded-xl">
+            Több
+          </button>
+        )}
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default HouseLoader;

@@ -49,6 +49,14 @@ export const Houses: CollectionConfig = {
       required: true,
     },
     {
+      type: "number",
+      name: "rating",
+      label: "Értékelés",
+      required: true,
+      min: 0,
+      max: 5,
+    },
+    {
       type: "checkbox",
       name: "inuse",
       label: "Használatban",

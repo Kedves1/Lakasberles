@@ -73,7 +73,10 @@ const Page = async () => {
         </div>
         <HighlightArea />
       </div>
-      <HouseLoader popular />
+      <HouseLoader popular title="Kedvelt" />
+      <HouseLoader title="Legjobb árérték arány" />
+      <HouseLoader title="Legolcsóbb" />
+      <HouseLoader title="Böngészés" carousel={false} increment />
     </main>
   );
 };
