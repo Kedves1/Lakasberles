@@ -1,7 +1,6 @@
 import { getPayload } from "payload";
 import configPromise from "@payload-config";
 import { Customer, Housepic } from "@/payload-types";
-import { Fragment } from "react";
 import { Star } from "lucide-react";
 
 const HighlightArea = async () => {

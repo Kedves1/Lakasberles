@@ -165,6 +165,7 @@ const HouseLoader = async ({
               return (
                 <CarouselItem key={i} className="lg:basis-1/5">
                   <Card
+                    id={house.id}
                     distance={35}
                     price={house.price}
                     owner={(house.owner as Customer).username}
@@ -187,6 +188,7 @@ const HouseLoader = async ({
           {houses.docs.map((house, i) => {
             return (
               <Card
+                id={house.id}
                 distance={35}
                 price={house.price}
                 owner={(house.owner as Customer).username}

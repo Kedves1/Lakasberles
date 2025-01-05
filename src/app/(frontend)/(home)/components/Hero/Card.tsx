@@ -1,13 +1,16 @@
 import React from "react";
 import Carousel from "./Carousel";
-import { Customer, Housepic } from "@/payload-types";
+import { Housepic } from "@/payload-types";
+import Link from "next/link";
 
 function Card({
+  id,
   distance,
   price,
   owner,
   pictures,
 }: {
+  id: string;
   distance: number;
   price: number;
   owner: string;
@@ -31,9 +34,12 @@ function Card({
         <div className="text-xl">{owner}</div>
       </div>
       <div className="w-full flex justify-center mt-4">
-        <button className="text-lg h-[40px] bg-highlight px-5 rounded-xl focus:ring-4 focus:outline-none hover:bg-hover transition-all ease-in-out duration-75">
+        <Link
+          href={`/house/${id}`}
+          className="text-lg h-[40px] grid place-items-center bg-highlight cursor-pointer px-5 rounded-xl focus:ring-4 focus:ring-highlight focus:outline-none hover:bg-hover transition-all ease-in-out duration-75"
+        >
           További információk
-        </button>
+        </Link>
       </div>
     </div>
   );
