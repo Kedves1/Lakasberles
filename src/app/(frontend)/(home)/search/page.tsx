@@ -1,8 +1,16 @@
 import { categories, countries } from "@/app/config";
 import React from "react";
+import HouseLoader from "../components/HouseLoader";
 
 type SearchParams = Promise<{
-  [key: string]: string | string[] | undefined;
+  price?: number,
+  rating?: number,
+  bathnum?: number,
+  roomnum?: number,
+  country?: string,
+  ventelation?: boolean | string,
+  category?: string,
+  incountry?: boolean | string
 }>;
 
 const Page = async (props: { searchParams: SearchParams }) => {
@@ -21,12 +29,12 @@ const Page = async (props: { searchParams: SearchParams }) => {
     }
   });
 
-  ventelation === "on" ? (ventelation = "Igen") : (ventelation = undefined);
-  incountry === "true" ? (incountry = "Igen") : (incountry = undefined);
+  ventelation === "on" ? (ventelation = true) : (ventelation = undefined);
+  incountry === "true" ? (incountry = true) : (incountry = undefined);
 
   return (
-    <main className="pt-[125px]">
-      <div className="w-full mt-10 max-w-[1800px] mx-auto border-b-main border-b-[5px] flex gap-16 items-end">
+    <main className="pt-[125px] min-h-screen">
+      <div className="w-full mt-10 max-w-[1800px] mx-auto flex gap-16 items-end">
         <div className="text-3xl">Szűrők</div>
         <div className="flex gap-5 relative text-slate-400">
           {country && <div>Ország: {country}</div>}
@@ -38,11 +46,23 @@ const Page = async (props: { searchParams: SearchParams }) => {
               <span className="text-yellow-300 text-xl">&#9733;</span>
             </div>
           )}
-          {ventelation && <div>Klíma: {ventelation}</div>}
+          {ventelation && <div>Klíma: {ventelation ? "Igen": "Nem"}</div>}
           {category && <div>Kategória: {category}</div>}
           {price && <div>Ár: {price}</div>}
         </div>
       </div>
+      <HouseLoader 
+        title=""
+        carousel={false} 
+        country={country}
+        price={price}
+        rating={rating}
+        ventelation={ventelation}
+        category={category}
+        roomnum={roomnum}
+        bathnum={bathnum}
+        incountry={incountry}
+      />
     </main>
   );
 };

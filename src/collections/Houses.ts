@@ -37,6 +37,18 @@ export const Houses: CollectionConfig = {
       editor: lexicalEditor({}),
     },
     {
+      type: "number",
+      name: "roomnum",
+      label: "Szoba szám",
+      required: true,
+    },
+    {
+      type: "number",
+      name: "bathnum",
+      label: "FürdőSzoba szám",
+      required: true,
+    },
+    {
       type: "point",
       name: "location",
       label: "Hely",
@@ -84,8 +96,24 @@ export const Houses: CollectionConfig = {
     },
     {
       type: "checkbox",
+      name: "ventelation",
+      label: "Klíma",
+    },
+    {
+      type: "checkbox",
       name: "spotlight",
       label: "Kiemelt",
+    },
+    {
+      type: "select",
+      name: "country",
+      label: "ország",
+      options: [
+        {
+          label: "Magyarország",
+          value: "Magyarország"
+        },
+       ]
     },
     {
       type: "json",

@@ -2,6 +2,7 @@ import { getPayload } from "payload";
 import configPromise from "@payload-config";
 import { Customer, Housepic } from "@/payload-types";
 import { Star } from "lucide-react";
+import Link from "next/link";
 
 const HighlightArea = async () => {
   const payload = await getPayload({
@@ -24,8 +25,11 @@ const HighlightArea = async () => {
       </div>
       <div className="grid grid-cols-2 w-fulll h-full gap-10 p-10">
         {houses.map((house) => (
-          <div
+          <Link
+            href={`house/${house.id}`}
             key={house.id}
+          >
+          <div
             className="w-full h-full flex items-end rounded-xl text-white"
             style={{
               backgroundImage: `url(${(house.housepics![0].pictures as Housepic).url})`,
@@ -51,6 +55,7 @@ const HighlightArea = async () => {
               </div>
             </div>
           </div>
+          </Link>
         ))}
       </div>
     </div>

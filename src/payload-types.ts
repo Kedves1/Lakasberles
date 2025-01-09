@@ -189,6 +189,8 @@ export interface House {
     };
     [k: string]: unknown;
   };
+  roomnum: number;
+  bathnum: number;
   /**
    * @minItems 2
    * @maxItems 2
@@ -199,7 +201,9 @@ export interface House {
   inuse?: boolean | null;
   categories: 'mansion' | 'pondside';
   popular?: boolean | null;
+  ventelation?: boolean | null;
   spotlight?: boolean | null;
+  country?: 'Magyarország' | null;
   reviews?:
     | {
         [k: string]: unknown;
@@ -373,13 +377,17 @@ export interface HousesSelect<T extends boolean = true> {
   name?: T;
   owner?: T;
   description?: T;
+  roomnum?: T;
+  bathnum?: T;
   location?: T;
   price?: T;
   rating?: T;
   inuse?: T;
   categories?: T;
   popular?: T;
+  ventelation?: T;
   spotlight?: T;
+  country?: T;
   reviews?: T;
   updatedAt?: T;
   createdAt?: T;
