@@ -6,6 +6,7 @@ import path from "path";
 import { buildConfig } from "payload";
 import { fileURLToPath } from "url";
 import sharp from "sharp";
+import {s3Storage} from "@payloadcms/storage-s3"
 
 import { Users } from "./collections/Users";
 import { UserPFPMedia } from "./collections/UserPFPMedia";
@@ -35,5 +36,26 @@ export default buildConfig({
     url: process.env.DATABASE_URI || "",
   }),
   sharp,
-  plugins: [payloadCloudPlugin()],
+  plugins: [payloadCloudPlugin(), s3Storage(
+    {
+      collections:{
+        pfps:{
+          prefix: "pfps",
+        },
+        housepics:{
+          prefix: "housepics",
+        }
+      },
+      bucket: process.env.S3_BUCKET!,
+      config:{
+        forcePathStyle: true,
+        credentials: {
+          accessKeyId: process.env.S3_ACCESS_KEY_ID!,
+          secretAccessKey: process.env.S3_SECRET_ACCESS_KEY!,
+        },
+        region: process.env.S3_REGION,
+        endpoint: process.env.S3_ENDPOINT,
+      },
+    }
+  ) ],
 });
