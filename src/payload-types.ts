@@ -33,7 +33,7 @@ export interface Config {
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
   };
   db: {
-    defaultIDType: string;
+    defaultIDType: number;
   };
   globals: {};
   globalsSelect: {};
@@ -91,7 +91,7 @@ export interface CustomerAuthOperations {
  * via the `definition` "users".
  */
 export interface User {
-  id: string;
+  id: number;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -108,7 +108,8 @@ export interface User {
  * via the `definition` "pfps".
  */
 export interface Pfp {
-  id: string;
+  id: number;
+  prefix?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -126,11 +127,11 @@ export interface Pfp {
  * via the `definition` "customers".
  */
 export interface Customer {
-  id: string;
+  id: number;
   username: string;
   firstname: string;
   lastname: string;
-  picture?: (string | null) | Pfp;
+  picture?: (number | null) | Pfp;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -147,7 +148,8 @@ export interface Customer {
  * via the `definition` "housepics".
  */
 export interface Housepic {
-  id: string;
+  id: number;
+  prefix?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -165,15 +167,15 @@ export interface Housepic {
  * via the `definition` "houses".
  */
 export interface House {
-  id: string;
+  id: number;
   housepics?:
     | {
-        pictures: string | Housepic;
+        pictures: number | Housepic;
         id?: string | null;
       }[]
     | null;
   name: string;
-  owner: string | Customer;
+  owner: number | Customer;
   description: {
     root: {
       type: string;
@@ -221,37 +223,37 @@ export interface House {
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
-  id: string;
+  id: number;
   document?:
     | ({
         relationTo: 'users';
-        value: string | User;
+        value: number | User;
       } | null)
     | ({
         relationTo: 'pfps';
-        value: string | Pfp;
+        value: number | Pfp;
       } | null)
     | ({
         relationTo: 'customers';
-        value: string | Customer;
+        value: number | Customer;
       } | null)
     | ({
         relationTo: 'housepics';
-        value: string | Housepic;
+        value: number | Housepic;
       } | null)
     | ({
         relationTo: 'houses';
-        value: string | House;
+        value: number | House;
       } | null);
   globalSlug?: string | null;
   user:
     | {
         relationTo: 'users';
-        value: string | User;
+        value: number | User;
       }
     | {
         relationTo: 'customers';
-        value: string | Customer;
+        value: number | Customer;
       };
   updatedAt: string;
   createdAt: string;
@@ -261,15 +263,15 @@ export interface PayloadLockedDocument {
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
-  id: string;
+  id: number;
   user:
     | {
         relationTo: 'users';
-        value: string | User;
+        value: number | User;
       }
     | {
         relationTo: 'customers';
-        value: string | Customer;
+        value: number | Customer;
       };
   key?: string | null;
   value?:
@@ -289,7 +291,7 @@ export interface PayloadPreference {
  * via the `definition` "payload-migrations".
  */
 export interface PayloadMigration {
-  id: string;
+  id: number;
   name?: string | null;
   batch?: number | null;
   updatedAt: string;
@@ -315,6 +317,7 @@ export interface UsersSelect<T extends boolean = true> {
  * via the `definition` "pfps_select".
  */
 export interface PfpsSelect<T extends boolean = true> {
+  prefix?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -351,6 +354,7 @@ export interface CustomersSelect<T extends boolean = true> {
  * via the `definition` "housepics_select".
  */
 export interface HousepicsSelect<T extends boolean = true> {
+  prefix?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
