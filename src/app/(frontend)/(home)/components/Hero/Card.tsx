@@ -10,12 +10,12 @@ function Card({
   owner,
   pictures,
 }: {
-  id: string;
+  id: number;
   distance: number;
   price: number;
   owner: string;
   pictures: {
-    pictures: string | Housepic;
+    pictures: number | Housepic;
     id?: string | null;
   }[];
 }) {

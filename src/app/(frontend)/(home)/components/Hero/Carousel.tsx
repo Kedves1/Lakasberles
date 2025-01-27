@@ -7,7 +7,7 @@ function Carousel({
   pictures,
 }: {
   pictures: {
-    pictures: string | Housepic;
+    pictures: number | Housepic;
     id?: string | null;
   }[];
 }) {
