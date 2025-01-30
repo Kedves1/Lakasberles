@@ -17,6 +17,7 @@ export interface Config {
     customers: Customer;
     housepics: Housepic;
     houses: House;
+    orders: Order;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -28,12 +29,13 @@ export interface Config {
     customers: CustomersSelect<false> | CustomersSelect<true>;
     housepics: HousepicsSelect<false> | HousepicsSelect<true>;
     houses: HousesSelect<false> | HousesSelect<true>;
+    orders: OrdersSelect<false> | OrdersSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
   };
   db: {
-    defaultIDType: number;
+    defaultIDType: string;
   };
   globals: {};
   globalsSelect: {};
@@ -91,7 +93,7 @@ export interface CustomerAuthOperations {
  * via the `definition` "users".
  */
 export interface User {
-  id: number;
+  id: string;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -108,8 +110,7 @@ export interface User {
  * via the `definition` "pfps".
  */
 export interface Pfp {
-  id: number;
-  prefix?: string | null;
+  id: string;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -127,11 +128,11 @@ export interface Pfp {
  * via the `definition` "customers".
  */
 export interface Customer {
-  id: number;
+  id: string;
   username: string;
   firstname: string;
   lastname: string;
-  picture?: (number | null) | Pfp;
+  picture?: (string | null) | Pfp;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -148,8 +149,7 @@ export interface Customer {
  * via the `definition` "housepics".
  */
 export interface Housepic {
-  id: number;
-  prefix?: string | null;
+  id: string;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -167,15 +167,15 @@ export interface Housepic {
  * via the `definition` "houses".
  */
 export interface House {
-  id: number;
+  id: string;
   housepics?:
     | {
-        pictures: number | Housepic;
+        pictures: string | Housepic;
         id?: string | null;
       }[]
     | null;
   name: string;
-  owner: number | Customer;
+  owner: string | Customer;
   description: {
     root: {
       type: string;
@@ -220,40 +220,59 @@ export interface House {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "orders".
+ */
+export interface Order {
+  id: string;
+  owner: string | Customer;
+  customer: string | Customer;
+  startDate: string;
+  endDate: string;
+  house: string | House;
+  stripeId: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
-  id: number;
+  id: string;
   document?:
     | ({
         relationTo: 'users';
-        value: number | User;
+        value: string | User;
       } | null)
     | ({
         relationTo: 'pfps';
-        value: number | Pfp;
+        value: string | Pfp;
       } | null)
     | ({
         relationTo: 'customers';
-        value: number | Customer;
+        value: string | Customer;
       } | null)
     | ({
         relationTo: 'housepics';
-        value: number | Housepic;
+        value: string | Housepic;
       } | null)
     | ({
         relationTo: 'houses';
-        value: number | House;
+        value: string | House;
+      } | null)
+    | ({
+        relationTo: 'orders';
+        value: string | Order;
       } | null);
   globalSlug?: string | null;
   user:
     | {
         relationTo: 'users';
-        value: number | User;
+        value: string | User;
       }
     | {
         relationTo: 'customers';
-        value: number | Customer;
+        value: string | Customer;
       };
   updatedAt: string;
   createdAt: string;
@@ -263,15 +282,15 @@ export interface PayloadLockedDocument {
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
-  id: number;
+  id: string;
   user:
     | {
         relationTo: 'users';
-        value: number | User;
+        value: string | User;
       }
     | {
         relationTo: 'customers';
-        value: number | Customer;
+        value: string | Customer;
       };
   key?: string | null;
   value?:
@@ -291,7 +310,7 @@ export interface PayloadPreference {
  * via the `definition` "payload-migrations".
  */
 export interface PayloadMigration {
-  id: number;
+  id: string;
   name?: string | null;
   batch?: number | null;
   updatedAt: string;
@@ -317,7 +336,6 @@ export interface UsersSelect<T extends boolean = true> {
  * via the `definition` "pfps_select".
  */
 export interface PfpsSelect<T extends boolean = true> {
-  prefix?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -354,7 +372,6 @@ export interface CustomersSelect<T extends boolean = true> {
  * via the `definition` "housepics_select".
  */
 export interface HousepicsSelect<T extends boolean = true> {
-  prefix?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -393,6 +410,20 @@ export interface HousesSelect<T extends boolean = true> {
   spotlight?: T;
   country?: T;
   reviews?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "orders_select".
+ */
+export interface OrdersSelect<T extends boolean = true> {
+  owner?: T;
+  customer?: T;
+  startDate?: T;
+  endDate?: T;
+  house?: T;
+  stripeId?: T;
   updatedAt?: T;
   createdAt?: T;
 }
