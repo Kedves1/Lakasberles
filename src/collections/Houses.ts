@@ -1,7 +1,14 @@
 import type { CollectionConfig } from "payload";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
+
 export const Houses: CollectionConfig = {
   slug: "houses",
+  access: {
+    create: () => true,
+    read: () => true,
+    update: () => true,
+    delete: () => true,
+  },
   fields: [
     {
       name: "housepics",
@@ -111,9 +118,9 @@ export const Houses: CollectionConfig = {
       options: [
         {
           label: "Magyarország",
-          value: "Magyarország"
+          value: "Magyarország",
         },
-       ]
+      ],
     },
     {
       type: "json",

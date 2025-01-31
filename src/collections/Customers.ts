@@ -7,6 +7,7 @@ export const Customers: CollectionConfig = {
   },
   access: {
     create: () => true,
+    read: () => true,
   },
   auth: true,
   fields: [

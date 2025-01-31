@@ -1,46 +1,72 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig } from "payload";
 
 export const Orders: CollectionConfig = {
-  slug: 'orders',
+  slug: "orders",
+  admin: {
+    useAsTitle: "stripeId",
+    defaultColumns: ["stripeId", "customer", "status", "startDate", "endDate"],
+  },
+  access: {
+    create: () => true,
+    read: () => true,
+    update: () => true,
+    delete: () => true,
+  },
   fields: [
     {
-      required: true,
       name: "owner",
       type: "relationship",
       relationTo: "customers",
+      required: true,
       label: "Tulajdonos",
     },
     {
-      required: true,
       name: "customer",
       type: "relationship",
       relationTo: "customers",
+      required: true,
       label: "Rendelő",
     },
     {
-      required: true,
-      name: "startDate",
-      type: "date",
-      label: "Kezdés",
-    },
-    {
-      required: true,
-      name: "endDate",
-      type: "date",
-      label: "Vége",
-    },
-    {
-      required: true,
       name: "house",
       type: "relationship",
       relationTo: "houses",
+      required: true,
       label: "Ház",
     },
     {
+      name: "startDate",
+      type: "date",
       required: true,
+      label: "Kezdés",
+    },
+    {
+      name: "endDate",
+      type: "date",
+      required: true,
+      label: "Vége",
+    },
+    {
       name: "stripeId",
       type: "text",
-      label: "Stripe id",
+      required: true,
+      unique: true,
+      label: "Stripe ID",
+    },
+    {
+      name: "status",
+      type: "select",
+      defaultValue: "active",
+      options: [
+        {
+          label: "Aktív",
+          value: "active",
+        },
+        {
+          label: "Törölt",
+          value: "cancelled",
+        },
+      ],
     },
   ],
-}
+};

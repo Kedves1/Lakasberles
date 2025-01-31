@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import AuthInput from "../components/AuthInput";
 import Link from "next/link";
 import AuthSubmit from "../components/AuthSubmit";
@@ -11,6 +11,8 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 const Page = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectPath = searchParams.get("redirect") || "/";
   const { toast } = useToast();
   const {
     register,
@@ -55,7 +57,7 @@ const Page = () => {
       duration: 3000,
     });
 
-    router.push("/");
+    router.push(redirectPath);
   };
 
   return (

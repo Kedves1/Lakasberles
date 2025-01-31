@@ -111,6 +111,7 @@ export interface User {
  */
 export interface Pfp {
   id: string;
+  prefix?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -150,6 +151,7 @@ export interface Customer {
  */
 export interface Housepic {
   id: string;
+  prefix?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -226,10 +228,11 @@ export interface Order {
   id: string;
   owner: string | Customer;
   customer: string | Customer;
+  house: string | House;
   startDate: string;
   endDate: string;
-  house: string | House;
   stripeId: string;
+  status?: ('active' | 'cancelled') | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -336,6 +339,7 @@ export interface UsersSelect<T extends boolean = true> {
  * via the `definition` "pfps_select".
  */
 export interface PfpsSelect<T extends boolean = true> {
+  prefix?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -372,6 +376,7 @@ export interface CustomersSelect<T extends boolean = true> {
  * via the `definition` "housepics_select".
  */
 export interface HousepicsSelect<T extends boolean = true> {
+  prefix?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -420,10 +425,11 @@ export interface HousesSelect<T extends boolean = true> {
 export interface OrdersSelect<T extends boolean = true> {
   owner?: T;
   customer?: T;
+  house?: T;
   startDate?: T;
   endDate?: T;
-  house?: T;
   stripeId?: T;
+  status?: T;
   updatedAt?: T;
   createdAt?: T;
 }
