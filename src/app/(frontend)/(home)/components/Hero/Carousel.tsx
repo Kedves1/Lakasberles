@@ -3,14 +3,14 @@
 import { Housepic } from "@/payload-types";
 import React, { useState } from "react";
 
-function Carousel({
-  pictures,
-}: {
+type CarouselProps = {
   pictures: {
-    pictures: number | Housepic;
+    pictures: string | Housepic;
     id?: string | null;
   }[];
-}) {
+};
+
+function Carousel({ pictures }: CarouselProps) {
   const [picNum, SetPicNum] = useState(0);
   return (
     <div className="w-full h-[150px] relative rounded-xl flex flex-shrink-0 flex-grow-0 overflow-clip">
