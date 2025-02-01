@@ -3,8 +3,14 @@ import type { CollectionConfig } from "payload";
 export const Orders: CollectionConfig = {
   slug: "orders",
   admin: {
-    useAsTitle: "stripeId",
-    defaultColumns: ["stripeId", "customer", "status", "startDate", "endDate"],
+    useAsTitle: "paymentIntentId",
+    defaultColumns: [
+      "paymentIntentId",
+      "customer",
+      "owner",
+      "startDate",
+      "endDate",
+    ],
   },
   access: {
     create: () => true,
@@ -13,6 +19,13 @@ export const Orders: CollectionConfig = {
     delete: () => true,
   },
   fields: [
+    {
+      name: "paymentIntentId",
+      type: "text",
+      required: true,
+      unique: true,
+      label: "Payment Intent ID",
+    },
     {
       name: "owner",
       type: "relationship",
@@ -47,19 +60,6 @@ export const Orders: CollectionConfig = {
       label: "Vége",
     },
     {
-      name: "stripeId",
-      type: "text",
-      required: true,
-      label: "Stripe ID",
-    },
-    {
-      name: "paymentIntentId",
-      type: "text",
-      required: true,
-      unique: true,
-      label: "Payment Intent ID",
-    },
-    {
       name: "status",
       type: "select",
       defaultValue: "active",
@@ -73,6 +73,12 @@ export const Orders: CollectionConfig = {
           value: "cancelled",
         },
       ],
+    },
+    {
+      name: "stripeId",
+      type: "text",
+      required: true,
+      label: "Stripe ID",
     },
   ],
 };

@@ -280,14 +280,14 @@ export interface House {
  */
 export interface Order {
   id: string;
+  paymentIntentId: string;
   owner: string | Customer;
   customer: string | Customer;
   house: string | House;
   startDate: string;
   endDate: string;
-  stripeId: string;
-  paymentIntentId: string;
   status?: ('active' | 'cancelled') | null;
+  stripeId: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -479,14 +479,14 @@ export interface HousesSelect<T extends boolean = true> {
  * via the `definition` "orders_select".
  */
 export interface OrdersSelect<T extends boolean = true> {
+  paymentIntentId?: T;
   owner?: T;
   customer?: T;
   house?: T;
   startDate?: T;
   endDate?: T;
-  stripeId?: T;
-  paymentIntentId?: T;
   status?: T;
+  stripeId?: T;
   updatedAt?: T;
   createdAt?: T;
 }

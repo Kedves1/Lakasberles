@@ -12,10 +12,8 @@ export default function SuccessPage() {
     const sessionId = searchParams.get("session_id");
 
     if (sessionId) {
-      // Payment was successful, webhook will handle order creation
       setIsProcessing(false);
     } else {
-      // No session ID, redirect to home
       router.push("/");
     }
   }, [searchParams, router]);
