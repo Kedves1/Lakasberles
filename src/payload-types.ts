@@ -195,19 +195,73 @@ export interface House {
   };
   roomnum: number;
   bathnum: number;
-  /**
-   * @minItems 2
-   * @maxItems 2
-   */
-  location: [number, number];
   price: number;
   rating: number;
   inuse?: boolean | null;
-  categories: 'mansion' | 'pondside';
+  categories:
+    | 'mansion'
+    | 'pondside'
+    | 'holiday'
+    | 'apartment'
+    | 'beachhouse'
+    | 'mountaincabin'
+    | 'farmhouse'
+    | 'treehouse'
+    | 'palace'
+    | 'domehouse'
+    | 'Cycladesstyle'
+    | 'trianglehouse'
+    | 'skihouse'
+    | 'pond'
+    | 'beautifulview'
+    | 'boathouse'
+    | 'cavehouse'
+    | 'glasshouse'
+    | 'earthhouse'
+    | 'containerhouse'
+    | 'luxuryvilla'
+    | 'desertoasis'
+    | 'penthouse'
+    | 'historichome'
+    | 'yurt'
+    | 'islandhouse';
   popular?: boolean | null;
   ventelation?: boolean | null;
   spotlight?: boolean | null;
-  country?: 'Magyarország' | null;
+  country?:
+    | (
+        | 'germany'
+        | 'france'
+        | 'spain'
+        | 'hungary'
+        | 'uk'
+        | 'italy'
+        | 'netherlands'
+        | 'belgium'
+        | 'austria'
+        | 'sweden'
+        | 'poland'
+        | 'portugal'
+        | 'greece'
+        | 'czech_republic'
+        | 'finland'
+        | 'ireland'
+        | 'denmark'
+        | 'romania'
+        | 'bulgaria'
+        | 'croatia'
+        | 'slovakia'
+        | 'slovenia'
+        | 'estonia'
+        | 'latvia'
+        | 'lithuania'
+        | 'luxembourg'
+        | 'malta'
+        | 'cyprus'
+      )
+    | null;
+  streetAddress: string;
+  city: string;
   reviews?:
     | {
         [k: string]: unknown;
@@ -405,7 +459,6 @@ export interface HousesSelect<T extends boolean = true> {
   description?: T;
   roomnum?: T;
   bathnum?: T;
-  location?: T;
   price?: T;
   rating?: T;
   inuse?: T;
@@ -414,6 +467,8 @@ export interface HousesSelect<T extends boolean = true> {
   ventelation?: T;
   spotlight?: T;
   country?: T;
+  streetAddress?: T;
+  city?: T;
   reviews?: T;
   updatedAt?: T;
   createdAt?: T;

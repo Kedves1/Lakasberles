@@ -48,7 +48,7 @@ const Account = () => {
           alt={`${data.user.username} pfp`}
           width={50}
           height={50}
-          className="rounded-full"
+          className="rounded-full aspect-square"
         />
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0 rounded-xl">

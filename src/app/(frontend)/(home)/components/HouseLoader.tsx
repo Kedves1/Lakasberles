@@ -1,7 +1,7 @@
 import { getPayload } from "payload";
 import configPromise from "@payload-config";
-import Card from "./Hero/Card";
-import { Customer } from "@/payload-types";
+import HouseCard from "./hero/HouseCard";
+
 import {
   CarouselContent,
   CarouselItem,
@@ -149,28 +149,22 @@ const HouseLoader = async ({
 
   if (carousel) {
     return (
-      <div className="m-auto max-sm:mx-1 rounded-xl bg-white text-4xl pt-4 max-w-[1800px] pb-10 shadow-sm shadow-black/20 mb-20">
+      <div className="m-auto rounded-xl bg-main text-4xl max-w-[1800px] shadow-sm shadow-black/20 mb-20 py-10">
         <div className="border-b-[2px] border-b-black/20 mx-10">{title}</div>
         <Carousel
           opts={{
             align: "start",
             loop: true,
-            slidesToScroll: 1,
+            slidesToScroll: 5,
             watchDrag: false,
           }}
-          className=" w-[90%] mx-auto"
+          className="w-[90%] mx-auto"
         >
-          <CarouselContent className="py-2 px-10">
+          <CarouselContent className="p-5">
             {houses.docs.map((house, i) => {
               return (
                 <CarouselItem key={i} className="lg:basis-1/5">
-                  <Card
-                    id={house.id}
-                    distance={35}
-                    price={house.price}
-                    owner={(house.owner as Customer).username}
-                    pictures={house.housepics!}
-                  />
+                  <HouseCard house={house} />
                 </CarouselItem>
               );
             })}
@@ -182,20 +176,11 @@ const HouseLoader = async ({
     );
   } else {
     return (
-      <div className="m-auto max-sm:mx-1 rounded-xl bg-white text-4xl pt-4 max-w-[1800px] px-10 pb-10 shadow-sm shadow-black/20 mb-20">
+      <div className="m-auto rounded-xl bg-white text-4xl pt-4 max-w-[1800px] px-10 pb-10 shadow-sm shadow-black/20 mb-20">
         <div className="border-b-[2px] border-b-black/20">{title}</div>
         <div className="grid grid-cols-1 lg:grid-cols-5 justify-items-center pt-2">
           {houses.docs.map((house, i) => {
-            return (
-              <Card
-                id={house.id}
-                distance={35}
-                price={house.price}
-                owner={(house.owner as Customer).username}
-                pictures={house.housepics!}
-                key={i}
-              />
-            );
+            return <HouseCard house={house} key={i} />;
           })}
         </div>
         {increment && (

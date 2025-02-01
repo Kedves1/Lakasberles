@@ -1,19 +1,18 @@
 "use client";
 
 import React, { Fragment, useState } from "react";
-import Image from "next/image";
 import { Slider } from "@/app/(frontend)/components/ui/Slider";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/app/(frontend)/components/ui/Popover";
-import Combobox from "./Combobox";
 import { Switch } from "@/app/(frontend)/components/ui/Switch";
 import Form from "next/form";
 import { useRouter, useSearchParams } from "next/navigation";
 import Account from "@/app/(frontend)/components/Account";
 import { SlidersHorizontal } from "lucide-react";
+import Combobox from "./Combobox";
 
 const Filters = () => {
   const router = useRouter();
