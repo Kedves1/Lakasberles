@@ -12,8 +12,8 @@ interface OrderButtonProps {
   startDate: string;
   endDate: string;
   totalNights: number;
-  ownerId: string; // új prop
-  houseName: string; // új prop
+  ownerId: string;
+  houseName: string;
 }
 
 export default function OrderButton({
@@ -23,8 +23,8 @@ export default function OrderButton({
   startDate,
   endDate,
   totalNights,
-  ownerId, // új prop használata
-  houseName, // új prop használata
+  ownerId,
+  houseName,
 }: OrderButtonProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState<any>(null);
@@ -80,7 +80,7 @@ export default function OrderButton({
           price,
           image,
           houseId,
-          houseName,  // Add house name
+          houseName,
           startDate,
           endDate,
           totalNights,
@@ -116,30 +116,32 @@ export default function OrderButton({
   const isOwner = user?.id === ownerId;
 
   return (
-    <button
-      onClick={handleCheckout}
-      disabled={isLoading || !areDatesSelected || hasExistingOrder || isOwner}
-      className={`w-full py-3 rounded-lg transition-colors ${
-        isOwner
-          ? "bg-red-500 text-white cursor-not-allowed"
-          : hasExistingOrder
-            ? "bg-green-500 text-white cursor-not-allowed"
-            : areDatesSelected
-              ? "bg-primary text-white hover:bg-primary/90"
-              : "bg-gray-300 text-gray-500 cursor-not-allowed"
-      }`}
-    >
-      {isOwner
-        ? "Ez a te házad!"
-        : isLoading
-          ? "Átirányítás a fizetési oldalra..."
-          : hasExistingOrder
-            ? "Már van aktív foglalásod"
-            : !areDatesSelected
-              ? "Válassz dátumot a foglaláshoz"
-              : user
-                ? "Foglalás most"
-                : "Jelentkezz be a foglaláshoz"}
-    </button>
+    <div className="flex flex-col gap-3">
+      <button
+        onClick={handleCheckout}
+        disabled={isLoading || !areDatesSelected || hasExistingOrder || isOwner}
+        className={`w-full py-3 rounded-lg transition-colors ${
+          isOwner
+            ? "bg-red-500 text-white cursor-not-allowed"
+            : hasExistingOrder
+              ? "bg-green-500 text-white cursor-not-allowed"
+              : areDatesSelected
+                ? "bg-primary text-white hover:bg-primary/90"
+                : "bg-gray-300 text-gray-500 cursor-not-allowed"
+        }`}
+      >
+        {isOwner
+          ? "Ez a te házad!"
+          : isLoading
+            ? "Átirányítás a fizetési oldalra..."
+            : hasExistingOrder
+              ? "Már van aktív foglalásod"
+              : !areDatesSelected
+                ? "Válassz dátumot a foglaláshoz"
+                : user
+                  ? "Foglalás most"
+                  : "Jelentkezz be a foglaláshoz"}
+      </button>
+    </div>
   );
 }

@@ -142,6 +142,7 @@ export async function POST(request: Request) {
           startDate: paymentIntent.metadata.startDate,
           endDate: paymentIntent.metadata.endDate,
           stripeId: session.id,
+          paymentIntentId: session.payment_intent as string,
           status: "active",
         },
       });

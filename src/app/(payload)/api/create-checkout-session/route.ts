@@ -48,7 +48,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Add validation for existing orders
     const payload = await getPayload({
       config: configPromise,
     });
@@ -104,6 +103,7 @@ export async function POST(request: Request) {
       mode: "payment",
       success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/house/${houseId}`,
+      allow_promotion_codes: true,
       metadata: {
         houseId,
         startDate,

@@ -286,6 +286,7 @@ export interface Order {
   startDate: string;
   endDate: string;
   stripeId: string;
+  paymentIntentId: string;
   status?: ('active' | 'cancelled') | null;
   updatedAt: string;
   createdAt: string;
@@ -484,6 +485,7 @@ export interface OrdersSelect<T extends boolean = true> {
   startDate?: T;
   endDate?: T;
   stripeId?: T;
+  paymentIntentId?: T;
   status?: T;
   updatedAt?: T;
   createdAt?: T;

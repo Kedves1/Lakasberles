@@ -50,8 +50,14 @@ export const Orders: CollectionConfig = {
       name: "stripeId",
       type: "text",
       required: true,
-      unique: true,
       label: "Stripe ID",
+    },
+    {
+      name: "paymentIntentId",
+      type: "text",
+      required: true,
+      unique: true,
+      label: "Payment Intent ID",
     },
     {
       name: "status",
