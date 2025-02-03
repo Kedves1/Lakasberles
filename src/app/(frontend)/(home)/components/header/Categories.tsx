@@ -29,14 +29,14 @@ const Categories = () => {
           watchDrag: true,
           slidesToScroll: 10,
         }}
-        className="h-full mx-auto w-[93%]"
+        className="h-full mx-auto max-md:w-full w-[93%]"
       >
         <CarouselContent className="h-full">
           {categories.map((category, i) => {
             return (
               <CarouselItem
                 key={i}
-                className="basis-1/11 h-[50px] flex items-center justify-center gap-0"
+                className="basis-1/11 max-sm:basis-1/2 max-md:basis-1/4 max-lg:basis-1/6 max-xl:basis-1/8 h-[50px] flex items-center justify-center gap-0"
               >
                 <button
                   className="flex flex-shrink-0 gap-1 items-center focus:ring-highlight/80 rounded-xl cursor-pointer focus:ring-4 focus:outline-none"
@@ -49,8 +49,8 @@ const Categories = () => {
             );
           })}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className="max-lg:hidden" />
+        <CarouselNext className="max-lg:hidden" />
       </Carousel>
     </div>
   );

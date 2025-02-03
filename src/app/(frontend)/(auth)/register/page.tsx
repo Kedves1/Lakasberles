@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import AuthInput from "../components/AuthInput";
 import Link from "next/link";
 import AuthSubmit from "../components/AuthSubmit";
-import { registerFormSchema, registerFormFields } from "../zod";
+import { registerFormSchema, registerFormFields } from "../../zod";
 import { useToast } from "../../components/ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";

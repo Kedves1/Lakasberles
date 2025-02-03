@@ -38,8 +38,8 @@ const Footer = () => {
 
   return (
     <footer className="w-full min-h-[350px] h-fit shadow-md shadow-black  bg-main pt-10 flex flex-col justify-between">
-      <div className="flex max-[1600px]:flex-col  max-[1600px]:mb-10 justify-between mx-20">
-        <div className="flex max-md:flex-wrap gap-20 max-[1600px]:gap-8 max-[1600px]:mb-20">
+      <div className="flex max-[1600px]:flex-col  max-[1600px]:mb-10 justify-between max-md:items-center md:mx-20">
+        <div className="flex max-md:flex-wrap max-md:justify-center gap-20 max-[1600px]:gap-8 max-[1600px]:mb-20">
           <div className="flex flex-col">
             <div className="mb-2 text-xl">Oldalak</div>
             <div className="flex flex-col gap-3">
@@ -74,7 +74,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="max-w-[800px] w-full">
+        <div className="max-w-[700px] w-full">
           <div className="mb-2 text-xl">Gyakori Kérdések</div>
           <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
@@ -82,24 +82,29 @@ const Footer = () => {
                 Hogyan tölthetek fel egy házat?
               </AccordionTrigger>
               <AccordionContent>
-                Igen, Geró tényleg 160cm, és kódoló tudása se nagyobb mint a
-                magassága.
+                <Link href="/upload" className="text-blue-500 underline">
+                  Ezt
+                </Link>{" "}
+                a linket követve, fiók létrehozása után, elérheted a feltöléshez
+                szükséges űrlapot!
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
-              <AccordionTrigger>Martin tényleg meleg?</AccordionTrigger>
+              <AccordionTrigger>
+                Hogyan kaphatok pénz vissza térítést?
+              </AccordionTrigger>
               <AccordionContent>
-                Nem. Martin nem meleg akarmit is hiszel.{" "}
-                <span className="!text-[#2F2D2D]">
-                  (ne hidd el, tényleg meleg)
-                </span>
+                A cég emailjére egy jól megfogalmazott levél, és megfelelő
+                bizonyíték alapján visszakaphatod bérlésed 50%-át.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3">
-              <AccordionTrigger>Robi volt Vietnámban?</AccordionTrigger>
+              <AccordionTrigger>
+                Kik csináltálk ezt a weboldalt?
+              </AccordionTrigger>
               <AccordionContent>
-                Igen, a közismert kép is bizonyítja, amin látszodik a trauma a
-                háborúból.
+                A weboldalt az Infoctopus Inc. készítette, ha többet szeretnél
+                megtudni rólunk, látogasd meg a weboldalunk! :3
               </AccordionContent>
             </AccordionItem>
           </Accordion>

@@ -34,7 +34,7 @@ const Account = () => {
   if (!data.user) {
     return (
       <Link href={"/login"}>
-        <button className="text-sm h-[40px] bg-highlight px-5 rounded-xl">
+        <button className="text-sm h-[40px] cursor-pointer bg-highlight px-5 rounded-xl">
           Bejelentkezés
         </button>
       </Link>

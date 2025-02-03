@@ -29,17 +29,7 @@ type HouseLoaderProps = {
 
 const HouseLoader = async ({
   className,
-  country,
-  price,
-  rating,
-  bathnum,
-  roomnum,
-  ventelation,
-  category,
-  incountry,
   carousel = true,
-  popular,
-  spotlight,
   title,
   increment,
 }: HouseLoaderProps) => {
@@ -48,99 +38,9 @@ const HouseLoader = async ({
   });
 
   const getHouses = async () => {
-    const query: Array<{ [key: string]: any }> = [
-      {
-        inuse: {
-          equals: false,
-        },
-      },
-    ];
-
-    if (country) {
-      query.push({
-        country: {
-          contains: country,
-        },
-      });
-    }
-
-    if (category) {
-      query.push({
-        category: {
-          contains: category,
-        },
-      });
-    }
-
-    if (price) {
-      query.push({
-        price: {
-          less_than_equal: price,
-        },
-      });
-    }
-
-    if (rating) {
-      query.push({
-        rating: {
-          less_than_equal: rating,
-        },
-      });
-    }
-
-    if (bathnum) {
-      query.push({
-        bathnum: {
-          greater_than_equal: bathnum,
-        },
-      });
-    }
-
-    if (roomnum) {
-      query.push({
-        roomnum: {
-          greater_than_equal: roomnum,
-        },
-      });
-    }
-
-    if (ventelation) {
-      query.push({
-        ventelation: {
-          equals: ventelation,
-        },
-      });
-    }
-
-    if (popular) {
-      query.push({
-        popular: {
-          equals: popular,
-        },
-      });
-    }
-
-    if (spotlight) {
-      query.push({
-        spotlight: {
-          equals: spotlight,
-        },
-      });
-    }
-
-    if (incountry) {
-      query.push({
-        incountry: {
-          equals: incountry,
-        },
-      });
-    }
     const houses = await payload.find({
       disableErrors: true,
       collection: "houses",
-      where: {
-        and: query,
-      },
     });
 
     return houses;
@@ -160,17 +60,20 @@ const HouseLoader = async ({
           }}
           className="w-[90%] mx-auto"
         >
-          <CarouselContent className="p-5">
+          <CarouselContent className="pt-5">
             {houses.docs.map((house, i) => {
               return (
-                <CarouselItem key={i} className="lg:basis-1/5">
+                <CarouselItem
+                  key={i}
+                  className="lg:basis-1/5 basis-1/11 max-sm:basis-1/2 max-md:basis-1/4 max-lg:basis-1/6 max-xl:basis-1/8 "
+                >
                   <HouseCard house={house} />
                 </CarouselItem>
               );
             })}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="max-md:-left-4" />
+          <CarouselNext className="max-md:-right-4" />
         </Carousel>
       </div>
     );

@@ -5,7 +5,7 @@ import AuthInput from "../components/AuthInput";
 import Link from "next/link";
 import AuthSubmit from "../components/AuthSubmit";
 import { useToast } from "../../components/ui/use-toast";
-import { siginFormSchema, signinFormFields } from "../zod";
+import { siginFormSchema, signinFormFields } from "@/app/(frontend)/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 

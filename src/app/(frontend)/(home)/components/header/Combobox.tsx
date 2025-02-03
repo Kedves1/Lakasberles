@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { InputHTMLAttributes } from "react";
 import { Button } from "@/app/(frontend)/components/ui/Button";
 import {
   Command,
@@ -18,7 +18,10 @@ import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { countries } from "@/app/config";
 
-const Combobox = () => {
+const Combobox = ({
+  className,
+  ...props
+}: InputHTMLAttributes<HTMLInputElement>) => {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
 
@@ -30,7 +33,10 @@ const Combobox = () => {
             variant="outline"
             role="combobox"
             aria-expanded={open}
-            className="w-[200px] flex-shrink-0 cursor-pointer justify-between border-0 bg-background rounded-xl hover:bg-background/50"
+            className={cn(
+              "w-[200px] flex-shrink-0 cursor-pointer justify-between border-0 bg-background rounded-xl hover:bg-background/50",
+              className
+            )}
           >
             {value
               ? countries.find((country) => country.value === value)?.label
@@ -76,6 +82,7 @@ const Combobox = () => {
         value={value}
         name="country"
         className="hidden"
+        {...props}
         readOnly
       />
     </>

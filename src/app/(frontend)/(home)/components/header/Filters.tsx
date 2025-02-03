@@ -24,7 +24,7 @@ const Filters = () => {
     const roomnum = FormData.get("roomnum");
     const bathnum = FormData.get("bathnum");
     const rating = FormData.get("rating");
-    const price = FormData.get("price");
+    const price = sliderValue[0];
     const ventelation = FormData.get("ventelation");
 
     country
@@ -40,9 +40,7 @@ const Filters = () => {
     ventelation
       ? params.set("ventelation", ventelation as string)
       : params.delete("ventelation");
-    price != "0"
-      ? params.set("price", price as string)
-      : params.delete("price");
+    price ? params.set("price", price.toString()) : params.delete("price");
 
     router.push(`/search?${params.toString()}`);
   };
@@ -61,14 +59,10 @@ const Filters = () => {
             <div className="flex justify-between flex-col h-full w-full">
               <div className="flex flex-col gap-5 ">
                 <div className="flex justify-between">
-                  <div className="lg:hidden">
-                    <Account />
-                  </div>
-                  <div className="">
-                    <button className="bg-highlight text-slate-800 px-5 rounded-xl py-2 cursor-pointer">
-                      Szűrés
-                    </button>
-                  </div>
+                  <div className=""></div>
+                  <button className="bg-highlight text-slate-800 px-5 rounded-xl py-2 cursor-pointer">
+                    Szűrés
+                  </button>
                 </div>
                 <div className="flex gap-x-10  flex-wrap">
                   <div className="flex flex-col flex-shrink-0 w-fit">

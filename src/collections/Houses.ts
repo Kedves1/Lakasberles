@@ -38,10 +38,9 @@ export const Houses: CollectionConfig = {
     },
     {
       name: "description",
-      type: "richText",
+      type: "text",
       label: "Leírás",
       required: true,
-      editor: lexicalEditor({}),
     },
     {
       type: "number",
@@ -65,7 +64,7 @@ export const Houses: CollectionConfig = {
       type: "number",
       name: "rating",
       label: "Értékelés",
-      required: true,
+      defaultValue: 0,
       min: 0,
       max: 5,
     },
@@ -76,7 +75,7 @@ export const Houses: CollectionConfig = {
     },
     {
       type: "select",
-      name: "categories",
+      name: "category",
       label: "Kategóriák",
       required: true,
       options: [

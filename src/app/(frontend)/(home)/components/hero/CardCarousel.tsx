@@ -27,7 +27,7 @@ function CardCarousel({ pictures }: CarouselProps) {
         slidesToScroll: 1,
         watchDrag: false,
       }}
-      className="w-[100%] hover:scale-110 transition-all ease-in-out duration-150 hover:shadow-lg hover:shadow-black/20 rounded-xl"
+      className="w-[100%] rounded-xl"
     >
       <CarouselContent className="">
         {pictures.map((pic, i) => {
@@ -45,8 +45,8 @@ function CardCarousel({ pictures }: CarouselProps) {
           );
         })}
       </CarouselContent>
-      <CarouselPrevious className="left-3 bg-white/30 backdrop-blur-md border-0" />
-      <CarouselNext className="right-3 bg-white/30 backdrop-blur-md border-0" />
+      <CarouselPrevious className="left-3 bg-white/30 backdrop-blur-md border-0 cursor-pointer" />
+      <CarouselNext className="right-3 bg-white/30 backdrop-blur-md border-0 cursor-pointer" />
     </Carousel>
   );
 }

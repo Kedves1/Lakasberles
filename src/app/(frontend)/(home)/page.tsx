@@ -31,7 +31,7 @@ const Page = async () => {
           </Link>
         </div>
       </div>
-      <div className="flex max-w-[1600px] justify-between m-auto w-full my-11 max-2xl:px-10 max-lg:flex-col">
+      <div className="flex max-w-[1600px] justify-between m-auto w-full my-11 max-lg:flex-col">
         <div className="flex w-full max-w-[500px] flex-col gap-10 lg:justify-around max-lg:gap-10 py-32">
           <div className="w-full flex items-center text-2xl text-green-600">
             <Link
@@ -73,7 +73,7 @@ const Page = async () => {
         </div>
         <HighlightArea />
       </div>
-      <HouseLoader popular title="Kedvelt" />
+      <HouseLoader title="Kedvelt" />
       <HouseLoader title="Legjobb árérték arány" />
       <HouseLoader title="Legolcsóbb" />
       <HouseLoader title="Böngészés" carousel={false} increment />

@@ -24,15 +24,15 @@ const HighlightArea = async () => {
   const { docs: houses } = await getHouses();
 
   return (
-    <div className="max-w-[1000px] bg-white h-[600px] w-full rounded-xl shadow-sm shadow-black/20 p-10">
+    <div className="max-w-[1000px] bg-white min-h-[600px] w-full rounded-xl shadow-sm shadow-black/20 max-md:py-10 max-md:px-10 md:p-10">
       <div className="flex items-center text-3xl gap-2 w-full border-b-[2px] border-b-black/20">
         Kiemelt
       </div>
-      <div className="grid grid-cols-2 w-fulll h-full gap-10 p-10">
+      <div className="grid max-md:grid-cols-1 grid-cols-2 w-full h-full gap-10 md:p-10">
         {houses.map((house) => (
           <Link href={`house/${house.id}`} key={house.id}>
             <div
-              className="w-full h-full flex items-end rounded-xl text-white"
+              className="w-full min-w-[300px] min-h-[140px] h-full flex items-end rounded-xl text-white"
               style={{
                 backgroundImage: `url(${(house.housepics![0].pictures as Housepic).url})`,
                 backgroundPosition: "center",
@@ -44,7 +44,7 @@ const HighlightArea = async () => {
                   <div className="">{house.price} Ft / Éjszaka</div>
                   <div className="flex">
                     {new Array(5).fill(0).map((_, i) => {
-                      if (i >= house.rating) {
+                      if (i >= house.rating!) {
                         return <Star key={i} color="white" />;
                       }
                       return <Star key={i} fill="yellow" color="yellow" />;

@@ -178,27 +178,13 @@ export interface House {
     | null;
   name: string;
   owner: string | Customer;
-  description: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
+  description: string;
   roomnum: number;
   bathnum: number;
   price: number;
-  rating: number;
+  rating?: number | null;
   inuse?: boolean | null;
-  categories:
+  category:
     | 'mansion'
     | 'pondside'
     | 'holiday'
@@ -463,7 +449,7 @@ export interface HousesSelect<T extends boolean = true> {
   price?: T;
   rating?: T;
   inuse?: T;
-  categories?: T;
+  category?: T;
   popular?: T;
   ventelation?: T;
   spotlight?: T;

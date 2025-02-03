@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Filters from "./Filters";
-import Languange from "./Languange";
 import Categories from "./Categories";
 import CountryButton from "./CountryButton";
 
@@ -35,8 +34,7 @@ const Header = () => {
         <div className="flex justify-between gap-20">
           <CountryButton />
           <div className="flex gap-5 items-center flex-shrink-0">
-            <Languange />
-            <div className="max-lg:hidden h-[50px] flex justify-center items-center">
+            <div className="h-[50px] flex justify-center items-center">
               <Account />
             </div>
           </div>
